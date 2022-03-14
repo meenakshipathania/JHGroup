@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "residentalcles",
+  "info": {
+    "singularName": "residentalcle",
+    "pluralName": "residentalcles",
+    "displayName": "residentalcle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    }
+  }
+}

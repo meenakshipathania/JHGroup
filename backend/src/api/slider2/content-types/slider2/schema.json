@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider2s",
+  "info": {
+    "singularName": "slider2",
+    "pluralName": "slider2s",
+    "displayName": "slider2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    },
+    "text3": {
+      "type": "string"
+    },
+    "text4": {
+      "type": "string"
+    }
+  }
+}

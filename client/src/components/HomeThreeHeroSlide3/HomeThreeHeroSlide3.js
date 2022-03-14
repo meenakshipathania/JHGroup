@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { Fade } from 'react-reveal';
+
+const apiUrl = 'http://localhost:1337/api/slider3s';
+const HomeThreeHeroSlide = () => {
+    const [slider, Setslider] = useState();
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        setTimeout(() => {
+            axios
+                .get(apiUrl, { cancelToken: request.token })
+                .then((res) => {
+                    Setslider(res.data.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }, 2000);
+        return () => request.cancel();
+    });
+
+    return (
+        <>
+            <div className="tp-single-slider-three tp-slider-height-three d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                <div className="slide-bg slide_bg_three2"></div>
+                {/* <div className="slider-img-three">
+                    {slider
+                        ? slider.map((x) => (
+                            <a href="/">
+                                <img
+                                    src={
+                                        x.attributes
+                                            ? imageurl(x.attributes)
+                                            : 'hgghtyu'
+                                    }
+                                    alt=""
+                                />
+                            </a>
+                        ))
+                        : 'hgfhgf'}
+                </div> */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="tp-slider-three z-index">
+
+                                <Fade left>
+                                    <h6 className="tp-slider-three-subtitle" ><img src="assets/img/icon/slider-icon-1.png" className="img-fluid" alt="img not found" /> {slider ? slider.map((x) => <a>{x.attributes.text1}</a>) : 'Home'}</h6>
+                                </Fade>
+
+                                <Fade right>
+                                    <h1 className="tp-slider-three-title">{slider ? slider.map((x) => <a>{x.attributes.text2}</a>) : 'Home'}
+                                        <br />{slider ? slider.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}</h1>
+                                </Fade>
+
+                                <Fade bottom>
+                                    <div className="tp-slider-three-btn">
+                                        <Link to="/about" className="yellow-btn">
+                                            <i className="flaticon-enter"></i> {slider ? slider.map((x) => <a>{x.attributes.text4}</a>) : 'Home'}</Link>
+                                    </div>
+                                </Fade>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default HomeThreeHeroSlide;

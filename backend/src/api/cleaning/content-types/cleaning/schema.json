@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cleanings",
+  "info": {
+    "singularName": "cleaning",
+    "pluralName": "cleanings",
+    "displayName": "cleaning"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    }
+  }
+}
