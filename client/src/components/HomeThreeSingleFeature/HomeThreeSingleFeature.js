@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const HomeThreeSingleFeature = ({icon,title}) => {
+const ApiUrl = 'http://localhost:1337/api/work1s';
+const HomeThreeSingleFeature = ({icon}) => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
    return (
       <>
          <div className="col-xl-3 col-sm-6">
@@ -12,8 +29,8 @@ const HomeThreeSingleFeature = ({icon,title}) => {
                </div>
                <div className="tp-feature-three-text">
                   <h4 className="tp-feature-three-title mb-20">
-                     <Link to="/projectsDetails">{title}</Link></h4>
-                  <p>Coingue aten lorem consqua interdum pretium ligaula a semper mauris easy dictuma</p>
+                     <Link to="/projectsDetails">{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}</Link></h4>
+                  <p>{text ? text.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
                </div>
             </div>
          </div>
