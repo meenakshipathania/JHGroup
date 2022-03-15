@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work3s",
+  "info": {
+    "singularName": "work3",
+    "pluralName": "work3s",
+    "displayName": "work3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "para": {
+      "type": "text"
+    }
+  }
+}

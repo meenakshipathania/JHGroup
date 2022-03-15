@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import HomeThreeSingleFeature from '../../../../components/HomeThreeSingleFeature/HomeThreeSingleFeature';
 import HomeThreeSingleFeature1 from '../../../../components/HomeThreeSingleFeature1/HomeThreeSingleFeature1';
+import HomeThreeSingleFeature2 from '../../../../components/HomeThreeSingleFeature2/HomeThreeSingleFeature2';
+import HomeThreeSingleFeature3 from '../../../../components/HomeThreeSingleFeature3/HomeThreeSingleFeature3';
 
 const ApiUrl = 'http://localhost:1337/api/work1s';
 const HomeThreeFeatures = () => {
@@ -36,8 +38,8 @@ const HomeThreeFeatures = () => {
                  
                   <HomeThreeSingleFeature icon="booking" title="{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}" />
                   <HomeThreeSingleFeature1 icon="delivery-box" title="Received Data" />
-                  <HomeThreeSingleFeature icon="boy" title="Ready Cleaner" />
-                  <HomeThreeSingleFeature icon="cleaning" title="Start Cleaning" />
+                  <HomeThreeSingleFeature2 icon="boy" title="Ready Cleaner" />
+                  <HomeThreeSingleFeature3 icon="cleaning" title="Start Cleaning" />
            
                </div>
             </div>
