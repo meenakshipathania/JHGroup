@@ -5,7 +5,6 @@ import HomeThreeSIngleAbout from '../../../../components/HomeThreeSIngleAbout/Ho
 import HomeThreeSingleAbout1 from '../../../../components/HomeThreeSingleAbout1/HomeThreeSingleAbout1';
 
 const apiUrl = 'http://localhost:1337/api/abouts';
-const ApiUrl = 'http://localhost:1337/api/cleanings';
 const HomeThreeAbout = () => {
    const [logo, Setlogo] = useState();
    useEffect(() => {
