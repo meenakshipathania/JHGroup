@@ -27,7 +27,7 @@ const HomeThreeProjects = () => {
          <section className="tp-project-area-three pb-90">
             <div className="tp-newsletter-area-three position-relative pb-115">
                <div className="container">
-                  <div className="tp-newsletter-area-three-bg" data-background="../assets/img/blog/ba.jpg">
+                  <div className="tp-newsletter-area-three-bg">
                      <div className="row justify-content-center align-items-center">
                         <div className="col-xl-4">
                            <div className="tp-newsletter-area-three-text">

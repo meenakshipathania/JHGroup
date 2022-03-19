@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeThreeAbout from './HomeThreeAbout/HomeThreeAbout';
-import HomeThreeBlogs from './HomeThreeBlogs/HomeThreeBlogs';
+// import HomeThreeBlogs from './HomeThreeBlogs/HomeThreeBlogs';
 import HomeThreeBrand from './HomeThreeBrand/HomeThreeBrand';
 import HomeThreeChoseArea from './HomeThreeChoseArea/HomeThreeChoseArea';
 import HomeThreeContact from './HomeThreeContact/HomeThreeContact';
@@ -26,7 +26,7 @@ const HomeThree = () => {
             <HomeThreeTestimonial/>
             <HomeThreeCta/>
             <HomeThreeChoseArea/>
-            <HomeThreeBlogs/>
+            {/* <HomeThreeBlogs/> */}
             <HomeThreeContact/>
             <HomeThreeFooter/>
         </>

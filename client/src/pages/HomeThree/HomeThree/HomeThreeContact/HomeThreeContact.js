@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
+const ApiUrl = 'http://localhost:1337/api/contacts';
 const HomeThreeContact = () => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
    return (
       <>
          <div className="tp-contact-cta-area position-relative pt-85">
@@ -14,8 +31,8 @@ const HomeThreeContact = () => {
                                  <i className="flaticon-home"></i>
                               </div>
                               <div className="tp-contact-cta-inner-text">
-                                 <span>Office Address</span>
-                                 <h5>34/A Palmal, London</h5>
+                                 <span>{text ? text.map((x) => <span>{x.attributes.head1}</span>) : 'Home'}</span>
+                                 <h5>{text ? text.map((x) => <a>{x.attributes.address}</a>) : 'Home'}</h5>
                               </div>
                            </div>
                         </div>
@@ -27,8 +44,8 @@ const HomeThreeContact = () => {
                                  <i className="flaticon-support"></i>
                               </div>
                               <div className="tp-contact-cta-inner-text">
-                                 <span>Free Contact</span>
-                                 <h5><a href="tel:02(850)2566325">02 (850) 256 6325</a></h5>
+                                 <span>{text ? text.map((x) => <span>{x.attributes.head2}</span>) : 'Home'}</span>
+                                 <h5><a href="tel:817-991-0254">{text ? text.map((x) => <h5>{x.attributes.phone}</h5>) : 'Home'}</a></h5>
                               </div>
                            </div>
                         </div>
@@ -40,7 +57,7 @@ const HomeThreeContact = () => {
                                  <i className="flaticon-email-1"></i>
                               </div>
                               <div className="tp-contact-cta-inner-text">
-                                 <span>Email Address</span>
+                                 <span>{text ? text.map((x) => <span>{x.attributes.head3}</span>) : 'Home'}</span>
                                  <h5><a href="mailto:info@thempure.com">info@thempure.com</a></h5>
                               </div>
                            </div>
