@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whies",
+  "info": {
+    "singularName": "why",
+    "pluralName": "whies",
+    "displayName": "why"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    },
+    "para": {
+      "type": "text"
+    }
+  }
+}

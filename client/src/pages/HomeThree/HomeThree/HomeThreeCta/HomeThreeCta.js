@@ -30,8 +30,9 @@ const HomeThreeCta = () => {
                                             <option defaultValue="2">Commercial Service</option>
                                             <option defaultValue="3">Residential Service</option>
                                             <option defaultValue="4">Industrial Service</option>
-                                            <option defaultValue="5">Commercial Service</option>
-                                            <option defaultValue="6">Residential Service</option>
+                                            <option defaultValue="5">Retaining Walls Service</option>
+                                            <option defaultValue="6">Lawn Care service</option>
+                                            <option defaultValue="6">Drining service</option>
                                         </select>
                                     </div>
                                 </div>

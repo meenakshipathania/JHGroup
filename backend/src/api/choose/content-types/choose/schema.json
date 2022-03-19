@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chooses",
+  "info": {
+    "singularName": "choose",
+    "pluralName": "chooses",
+    "displayName": "choose"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "head1": {
+      "type": "string"
+    },
+    "head2": {
+      "type": "string"
+    }
+  }
+}

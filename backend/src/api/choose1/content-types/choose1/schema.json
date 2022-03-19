@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "choose1s",
+  "info": {
+    "singularName": "choose1",
+    "pluralName": "choose1s",
+    "displayName": "choose1",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "head": {
+      "type": "string"
+    },
+    "para": {
+      "type": "text"
+    },
+    "tagline": {
+      "type": "string"
+    }
+  }
+}

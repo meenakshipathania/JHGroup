@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import HomeThreeSingleProject from '../../../../components/HomeThreeSingleProject/HomeThreeSingleProject';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
+const ApiUrl = 'http://localhost:1337/api/projects';
 const HomeThreeProjects = () => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
 
    return (
       <>
@@ -44,26 +61,26 @@ const HomeThreeProjects = () => {
                <div className="row align-items-center">
                   <div className="col-xl-4 col-lg-4 col-md-6">
                      <div className="tp-project-title-wrapper wow fadeInUp" data-wow-delay=".2s">
-                        <h5 className="tp-section-subtitle-three mb-20">Recent Project _ _</h5>
-                        <h2 className="tp-section-title-two color-theme-blue mb-45">Brightening The Home From Every Side</h2>
+                        <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}</h5>
+                        <h2 className="tp-section-title-two color-theme-blue mb-45">{text ? text.map((x) => <h2>{x.attributes.para}</h2>) : 'Home'}</h2>
                         <div className="tp-project-title-btn">
-                           <Link to="/projectsDetails" className="yellow-btn"><i className="flaticon-enter"></i> More Project</Link>
+                           <Link to="/projectsDetails" className="yellow-btn"><i className="flaticon-enter"></i> {text ? text.map((x) => <a>{x.attributes.text}</a>) : 'Home'}</Link>
                         </div>
                      </div>
                   </div>
 
 
                   <HomeThreeSingleProject column="4" columnTwo="6" image_num="5"
-                  title="Room Cleaning" subTitle="Residential Service" />
+                  title="Washroom Remodeling" subTitle="Residential Service" />
 
                   <HomeThreeSingleProject column="4" columnTwo="6" image_num="6"
-                  title="Office Cleaning" subTitle="Office Service" />
+                  title="Kitchen Remodeling" subTitle="Residential Service" />
 
                   <HomeThreeSingleProject column="4" columnTwo="6" image_num="7"
-                  title="Kitchen Cleaning" subTitle="Kitchen Service" />
+                  title="Retaining Walls" subTitle="Residential & commericial Service" />
 
                   <HomeThreeSingleProject column="8" columnTwo="12" image_num="8"
-                  title="Hospital Cleaning" subTitle="Hospital Service" />
+                  title="Landscaping" subTitle="Residential & commericial Service" />
 
                </div>
             </div>

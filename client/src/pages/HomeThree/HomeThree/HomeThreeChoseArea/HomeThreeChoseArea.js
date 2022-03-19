@@ -1,42 +1,85 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import HomeThreeSingleChoseArea from '../../../../components/HomeThreeSingleChoseArea/HomeThreeSingleChoseArea';
 
+const ApiUrl = 'http://localhost:1337/api/chooses?populate=*';
+const NewUrl = 'http://localhost:1337/api/choose1s';
 const HomeThreeChoseArea = () => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
+   function imageurl(atttribute) {
+      const baseurl = 'http://localhost:1337';
+      const dataurl = atttribute.image.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   const [data, Setdata] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(NewUrl, { cancelToken: request.token })
+            .then((res) => {
+               Setdata(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
+
    return (
       <>
          <section className="tp-choose-area-three position-relative mt-120 pb-50">
             <div className="tp-choose-area-three-img">
-               <img src="assets/img/about/about-img-5.jpg" alt="img-not-found"/>
-                  <div className="tp-choose-three-year tp-choose-three-year-responsive mb-50">
-                     <div className="tp-choose-three-year-inner">
-                        <h3>20 Years</h3>
-                        <h4>Succesfully <br/>Provide Service</h4>
-                     </div>
+               {text
+                  ? text.map((x) => (
+                     <a href="/"><img className="img-fluid" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
+                  ))
+                  : 'hgfhgf'}
+               {/* <div className="tp-choose-three-year tp-choose-three-year-responsive mb-50">
+                  <div className="tp-choose-three-year-inner">
+                     <h3>{text ? text.map((x) => <h3>{x.attributes.head1}</h3>) : 'Home'}</h3>
+                     <h4>{text ? text.map((x) => <h4>{x.attributes.head2}</h4>) : 'Home'}</h4>
                   </div>
+               </div> */}
             </div>
             <div className="container">
                <div className="row align-items-end justify-content-center">
                   <div className="col-xl-6 text-end d-xl-block d-none">
                      <div className="tp-choose-three-year mb-50">
                         <div className="tp-choose-three-year-inner">
-                           <h3>20 Years</h3>
-                           <h4>Succesfully <br/>Provide Service</h4>
+                           <h3>{text ? text.map((x) => <h3>{x.attributes.head1}</h3>) : 'Home'}</h3>
+                           <h4>{text ? text.map((x) => <h4>{x.attributes.head2}</h4>) : 'Home'}</h4>
                         </div>
                      </div>
                   </div>
                   <div className="col-xl-6 col-lg-10">
                      <div className="tp-choose-three">
                         <div className="section-title-wrapper mb-25">
-                           <h5 className="tp-section-subtitle-three mb-20">Why Choose Us _ _</h5>
-                           <h2 className="tp-section-title-two color-theme-blue">Find Standard Cleaning <br/>with Personal Touch</h2>
+                           <h5 className="tp-section-subtitle-three mb-20">{data ? data.map((x) => <h5>{x.attributes.head}</h5>) : 'Home'}</h5>
+                           <h2 className="tp-section-title-two color-theme-blue">{data ? data.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'}</h2>
                         </div>
-                        <p className="mb-45">Sed nteger porta vel placerat cra torquent dolor site habitasse elementum disign proin pulvinar class quam socis quam cum quisque ennim praesent anest amet fermentum proin donec massa augue in neque sapien</p>
+                        <p className="mb-45">{data ? data.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
                         <div className="row mb-10">
 
-                           <HomeThreeSingleChoseArea icon="delivery-box" title="Online Estimation" />
-                           <HomeThreeSingleChoseArea icon="gift-box" title="Project Discount" />
-                           <HomeThreeSingleChoseArea icon="video-camera" title="Work Monitoring" />
-                           <HomeThreeSingleChoseArea icon="snowfall" title="Satisfied Service" />
+                           <HomeThreeSingleChoseArea icon="delivery-box" title="Online Estimation" para="We are responsible for the online estinmation of the project."/>
+                           <HomeThreeSingleChoseArea icon="gift-box" title="Project Discount" para="We also give an discount to our customer. We have lots of wonderful offers."/>
+                           <HomeThreeSingleChoseArea icon="video-camera" title="Work Monitoring" para="You can monitor our way of work at every stage." />
+                           <HomeThreeSingleChoseArea icon="snowfall" title="Satisfied Service" para="We provide a satisfied servie to our customer."/>
 
                         </div>
                      </div>

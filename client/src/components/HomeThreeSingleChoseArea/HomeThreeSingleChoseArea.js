@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HomeThreeSingleChoseArea = ({icon,title}) => {
+const HomeThreeSingleChoseArea = ({icon,title,para}) => {
     return (
         <>
             <div className="col-sm-6">
@@ -13,7 +13,7 @@ const HomeThreeSingleChoseArea = ({icon,title}) => {
                         <h4 className="tp-about-service-text-title mb-15">
                             <Link to="/services">{title}</Link>
                         </h4>
-                        <p>Facilsis veicula hendrerit turp turpis solutat neique dapibus justo rdiculu dapibus no ridiculuy</p>
+                        <p>{para}</p>
                     </div>
                 </div>
             </div>
