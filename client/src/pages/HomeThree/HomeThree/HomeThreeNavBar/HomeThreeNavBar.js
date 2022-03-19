@@ -104,7 +104,7 @@ const HomeThreeNavBar = () => {
                                     </ul>
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Home'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/about">About</NavLink></li>
                                        <li><NavLink to="/appointment">Appointment</NavLink></li>
@@ -122,7 +122,7 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/projects">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'Home'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/projects">Projects</NavLink></li>
                                        <li><NavLink to="/projectsDetails">Projects Details
@@ -130,7 +130,7 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/blogSidebar">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Home'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink>
                                        </li>

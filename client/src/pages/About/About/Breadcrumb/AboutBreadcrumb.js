@@ -4,7 +4,7 @@ import Breadcrumb from '../../../../components/Breadcrumb/Breadcrumb';
 const AboutBreadcrumb = () => {
    return (
       <>
-         <Breadcrumb title="About" subTitle="Klenar"></Breadcrumb>
+         <Breadcrumb title="About" subTitle="JHGroup"></Breadcrumb>
       </>
    );
 };

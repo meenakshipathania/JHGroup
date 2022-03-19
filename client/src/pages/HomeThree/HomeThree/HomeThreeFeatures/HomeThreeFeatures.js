@@ -36,7 +36,7 @@ const HomeThreeFeatures = () => {
                </div>
                <div className="row">
                  
-                  <HomeThreeSingleFeature icon="booking" title="{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}" />
+                  <HomeThreeSingleFeature icon="booking" />
                   <HomeThreeSingleFeature1 icon="delivery-box" title="Received Data" />
                   <HomeThreeSingleFeature2 icon="boy" title="Ready Cleaner" />
                   <HomeThreeSingleFeature3 icon="cleaning" title="Start Cleaning" />

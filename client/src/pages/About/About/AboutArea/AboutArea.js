@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const apiUrl = 'http://localhost:1337/api/abouts';
 const AboutArea = () => {
+   const [logo, Setlogo] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(apiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Setlogo(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
    return (
       <>
          <section className="tp-about-area tp-abouts-area position-relative pt-120 pb-100 fix">
@@ -20,8 +37,8 @@ const AboutArea = () => {
                   <div className="col-xl-6 col-md-10">
                      <div className="tp-about-text tp-about-inner-page-text z-index wow fadeInUp" data-wow-delay=".6s">
                         <div className="section-title-wrapper mb-30">
-                           <h5 className="tp-section-subtitle common-yellow-shape mb-20 heading-color-black">About our Company</h5>
-                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />Up your Mess</h2>
+                           <h5 className="tp-section-subtitle common-yellow-shape mb-20 heading-color-black">{logo ? logo.map((x) => <p>{x.attributes.text1}</p>) : 'Home'}</h5>
+                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />Upthyhds</h2>
                         </div>
                         <p className="mb-40">Can consent to the use of such technologies byclosing this notice senectus amet sodales habitant dapibus </p>
                         <div className="row mb-10">

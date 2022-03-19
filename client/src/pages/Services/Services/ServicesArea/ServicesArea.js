@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ServicePageArea from '../../../../components/ServiceArea/ServicePageArea';
+import ServicePageArea1 from '../../../../components/ServiceArea1/ServicePageArea1';
+import ServicePageArea2 from '../../../../components/ServiceArea2/ServicePageArea2';
+import ServicePageArea3 from '../../../../components/ServiceArea3/ServicePageArea3';
+import ServicePageArea4 from '../../../../components/ServiceArea4/ServicePageArea4';
+import ServicePageArea5 from '../../../../components/ServiceArea5/ServicePageArea5';
+import ServicePageArea6 from '../../../../components/ServiceArea6/ServicePageArea6';
+import ServicePageArea7 from '../../../../components/ServiceArea7/ServicePageArea7';
 
+const ApiUrl = 'http://localhost:1337/api/services';
 const ServicesArea = () => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
    return (
       <>
          <section className="tp-service-area-three pt-120 pb-90">
@@ -16,23 +40,26 @@ const ServicesArea = () => {
                </div>
                <div className="row">
                
-               <ServicePageArea service_image_num="9" ser_icon_img="house-cleaning" 
-               ser_title="House Cleaning"></ServicePageArea>
+               <ServicePageArea ser_icon_img="house-cleaning"
+                     ser_title="House Cleaning" colorclassName="home_three_title"></ServicePageArea>
 
-               <ServicePageArea service_image_num="10" ser_icon_img="cleaning" 
-               ser_title="Hospital Cleaning"></ServicePageArea>
+                  <ServicePageArea1 ser_icon_img="cleaning"
+                     ser_title="Hospital Cleaning" colorclassName="home_three_title"></ServicePageArea1>
 
-               <ServicePageArea service_image_num="11" ser_icon_img="pot" 
-               ser_title="Kitchen Cleaning"></ServicePageArea>
+                  <ServicePageArea2 ser_icon_img="pot"
+                     ser_title="Kitchen Cleaning" colorclassName="home_three_title"></ServicePageArea2>
 
-               <ServicePageArea service_image_num="12" ser_icon_img="window" 
-               ser_title="Window Cleaning"></ServicePageArea>
+                  <ServicePageArea3 ser_icon_img="window"
+                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea3>
 
-               <ServicePageArea service_image_num="13" ser_icon_img="desk" 
-               ser_title="Office Cleaning"></ServicePageArea>
-
-               <ServicePageArea service_image_num="14" ser_icon_img="vacuum-cleaner" 
-               ser_title="Carpet Cleaning"></ServicePageArea>
+                  <ServicePageArea4 ser_icon_img="window"
+                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea4>
+                  <ServicePageArea5 ser_icon_img="window"
+                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea5>
+                  <ServicePageArea6 ser_icon_img="window"
+                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea6>
+                  <ServicePageArea7 ser_icon_img="window"
+                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea7>
 
                </div>
             </div>

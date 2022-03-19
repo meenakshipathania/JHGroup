@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import HomeThreeSingleFeature from '../../../../components/HomeThreeSingleFeature/HomeThreeSingleFeature';
+import HomeThreeSingleFeature1 from '../../../../components/HomeThreeSingleFeature1/HomeThreeSingleFeature1';
+import HomeThreeSingleFeature2 from '../../../../components/HomeThreeSingleFeature2/HomeThreeSingleFeature2';
+import HomeThreeSingleFeature3 from '../../../../components/HomeThreeSingleFeature3/HomeThreeSingleFeature3';
 
+const ApiUrl = 'http://localhost:1337/api/works';
 const WorkingProcess = () => {
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
    return (
       <>
          <section className="tp-feature-area-three pt-120 pb-80 bg-gray-light">
@@ -9,64 +30,20 @@ const WorkingProcess = () => {
                <div className="row">
                   <div className="col-12">
                      <div className="section-title-wrapper text-center mb-45 wow fadeInUp" data-wow-delay=".2s">
-                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">Our Working Process</h5>
-                        <h2 className="tp-section-title mb-25 heading-color-black">Excellent Techniques For <br/>Effective Cleaning</h2>
+                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}</h5>
+                        <h2 className="tp-section-title mb-25 heading-color-black">{text ? text.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'} <br/>{text ? text.map((x) => <a>{x.attributes.tagline2}</a>) : 'Home'}</h2>
                      </div>
                   </div>
                </div>
                <div className="row">
-                  <div className="col-xl-3 col-sm-6">
-                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
-                        <div className="tp-feature-three-icon mb-30">
-                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found"/>
-                              <i className="flaticon-booking"></i>
-                        </div>
-                        <div className="tp-feature-three-text">
-                           <h4 className="tp-feature-three-title mb-20 heading-color-black-with-hover">
-                              <Link to="/projectsDetails">Book Online</Link></h4>
-                           <p>Coingue aten lorem consqua interdum pretium ligaula a semper mauris easy dictuma</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="col-xl-3 col-sm-6">
-                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".7s">
-                        <div className="tp-feature-three-icon mb-30">
-                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found"/>
-                              <i className="flaticon-delivery-box"></i>
-                        </div>
-                        <div className="tp-feature-three-text">
-                           <h4 className="tp-feature-three-title mb-20 heading-color-black-with-hover">
-                              <Link to="/projectsDetails">Received Data</Link></h4>
-                           <p>Coingue aten lorem consqua interdum pretium ligaula a semper mauris easy dictuma</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="col-xl-3 col-sm-6">
-                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay="1s">
-                        <div className="tp-feature-three-icon mb-30">
-                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found"/>
-                              <i className="flaticon-boy"></i>
-                        </div>
-                        <div className="tp-feature-three-text">
-                           <h4 className="tp-feature-three-title mb-20 heading-color-black-with-hover">
-                              <Link to="/projectsDetails">Ready Cleaner</Link></h4>
-                           <p>Coingue aten lorem consqua interdum pretium ligaula a semper mauris easy dictuma</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="col-xl-3 col-sm-6">
-                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay="1.3s">
-                        <div className="tp-feature-three-icon mb-30">
-                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found"/>
-                              <i className="flaticon-cleaning"></i>
-                        </div>
-                        <div className="tp-feature-three-text">
-                           <h4 className="tp-feature-three-title mb-20 heading-color-black-with-hover">
-                              <Link to="/projectsDetails">Start Cleaning</Link></h4>
-                           <p>Coingue aten lorem consqua interdum pretium ligaula a semper mauris easy dictuma</p>
-                        </div>
-                     </div>
-                  </div>
+               <div className="row">
+                 
+                 <HomeThreeSingleFeature icon="booking" />
+                 <HomeThreeSingleFeature1 icon="delivery-box" title="Received Data" />
+                 <HomeThreeSingleFeature2 icon="boy" title="Ready Cleaner" />
+                 <HomeThreeSingleFeature3 icon="cleaning" title="Start Cleaning" />
+          
+              </div>                
                </div>
             </div>
          </section>
