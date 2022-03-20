@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ServicePageArea from '../../../../components/ServiceArea/ServicePageArea';
-import ServicePageArea1 from '../../../../components/ServiceArea1/ServicePageArea1';
-import ServicePageArea2 from '../../../../components/ServiceArea2/ServicePageArea2';
-import ServicePageArea3 from '../../../../components/ServiceArea3/ServicePageArea3';
-import ServicePageArea4 from '../../../../components/ServiceArea4/ServicePageArea4';
-import ServicePageArea5 from '../../../../components/ServiceArea5/ServicePageArea5';
-import ServicePageArea6 from '../../../../components/ServiceArea6/ServicePageArea6';
-import ServicePageArea7 from '../../../../components/ServiceArea7/ServicePageArea7';
+
 
 
 const ApiUrl = 'http://localhost:1337/api/services';
@@ -42,24 +36,6 @@ const HomeThreePopularServices = () => {
                <div className="row">
                   <ServicePageArea ser_icon_img="house-cleaning"
                      ser_title="House Cleaning" colorclassName="home_three_title"></ServicePageArea>
-
-                  <ServicePageArea1 ser_icon_img="cleaning"
-                     ser_title="Hospital Cleaning" colorclassName="home_three_title"></ServicePageArea1>
-
-                  <ServicePageArea2 ser_icon_img="pot"
-                     ser_title="Kitchen Cleaning" colorclassName="home_three_title"></ServicePageArea2>
-
-                  <ServicePageArea3 ser_icon_img="window"
-                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea3>
-
-                  <ServicePageArea4 ser_icon_img="window"
-                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea4>
-                  <ServicePageArea5 ser_icon_img="window"
-                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea5>
-                  <ServicePageArea6 ser_icon_img="window"
-                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea6>
-                  <ServicePageArea7 ser_icon_img="window"
-                     ser_title="Window Cleaning" colorclassName="home_three_title"> </ServicePageArea7>
                </div>
             </div>
          </section>

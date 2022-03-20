@@ -26,34 +26,37 @@ const ServicePageArea = ({ ser_icon_img, colorClass }) => {
    }
    return (
       <>
-         <div className="col-lg-6">
-            <div className="tp-service-three tp-service-four mb-30 wow fadeInUp" data-wow-delay="1.2s">
-               <div className="tp-service-three-img">
-                     {text
-                        ? text.map((x) => (
+         <div className="row">
+            {text
+               ? text.map((x) => (
+                  <div className="col-lg-6">
+                     <div className="tp-service-three tp-service-four mb-30 wow fadeInUp" data-wow-delay="1.2s">
+                        <div className="tp-service-three-img">
                            <a href="/"><img className="img-fluid" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
-                        ))
-                        : 'hgfhgf'}
-                  {/* <img src={`assets/img/service/service-${service_image_num}.jpg`}  alt="img-not-found" /> */}
-                  <div className="tp-service-three-img-icon">
-                     <i className={`flaticon-${ser_icon_img}`}></i>
-                  </div>
-                  <div className="tp-service-three-img-overlay">
-                     <div className="tp-service-three-img-overlay-icon">
-                        <i className={`flaticon-${ser_icon_img}`}></i>
+                           <div className="tp-service-three-img-icon">
+                              <i className={`flaticon-${ser_icon_img}`}></i>
+                           </div>
+                           <div className="tp-service-three-img-overlay">
+                              <div className="tp-service-three-img-overlay-icon">
+                                 <i className={`flaticon-${ser_icon_img}`}></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div className='col-lg-6'>
+                           <div className="tp-service-three-text fix">
+                              <h4 className={colorClass ? "home_three_title tp-service-three-title mb-20 heading-color-black-with-hover" : "tp-service-three-title mb-20 heading-color-black-with-hover"}>
+                                 <Link to="/servicesDetails"> <a>{x.attributes.heading}</a></Link></h4>
+                              <p className="mb-30"><a>{x.attributes.para}</a></p>
+                              <div className="tp-service-three-text-btn">
+                                 <Link to="/servicesDetails" className="yellow-btn service__btn">
+                                    <i className="flaticon-enter"></i><a>{x.attributes.text}</a></Link>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
-               </div>
-               <div className="tp-service-three-text fix">
-                  <h4 className={colorClass ? "home_three_title tp-service-three-title mb-20 heading-color-black-with-hover" : "tp-service-three-title mb-20 heading-color-black-with-hover"}>
-                     <Link to="/servicesDetails">{text ? text.map((x) => <a>{x.attributes.heading}</a>) : 'Home'}</Link></h4>
-                  <p className="mb-30">{text ? text.map((x) => <a>{x.attributes.para}</a>) : 'Home'}</p>
-                  <div className="tp-service-three-text-btn">
-                     <Link to="/servicesDetails" className="yellow-btn service__btn">
-                        <i className="flaticon-enter"></i> {text ? text.map((x) => <a>{x.attributes.text}</a>) : 'Home'}</Link>
-                  </div>
-               </div>
-            </div>
+               ))
+               : 'hgfhgf'}
          </div>
       </>
    );
