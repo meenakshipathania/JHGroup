@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home/Home';
 import About from './pages/About/About/About';
+import Gallary from './pages/gallary/main';
 import Appointment from './pages/Appointment/Appointment/Appointment';
 import Pricing from './pages/Pricing/Pricing/Pricing';
 import Team from './pages/Team/Team/Team';
@@ -31,7 +32,7 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/homeTwo" element={<HomeTwo />} />
           <Route path="/homeThree" element={<HomeThree />} />
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/blogSidebar" element={<BlogsSidebar />} />
           <Route path="/blogDetails" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallary" element={<Gallary />} />
         </Routes>
       </BrowserRouter>
     </>

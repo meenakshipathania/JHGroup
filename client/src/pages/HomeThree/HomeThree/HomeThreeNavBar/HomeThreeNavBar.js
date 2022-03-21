@@ -104,7 +104,7 @@ const HomeThreeNavBar = () => {
                                     </ul>
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/about">About</NavLink></li>
                                        <li><NavLink to="/appointment">Appointment</NavLink></li>
@@ -115,14 +115,14 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/gallary">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Gallary'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/services">Services</NavLink></li>
                                        <li><NavLink to="/servicesDetails">Services Details</NavLink></li>
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'About Us'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/projects">Projects</NavLink></li>
                                        <li><NavLink to="/projectsDetails">Projects Details
@@ -130,7 +130,7 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Home'}</NavLink>
+                                    <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Contact'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink>
                                        </li>
@@ -151,11 +151,11 @@ const HomeThreeNavBar = () => {
                      <div className="col-xxl-4 col-xl-3 d-none d-xl-block">
                         <div className="tp-header-right-three">
                            <div className="tp-header-number-three">
-                              <span>Call Us : <a href="tel:33888200-55">{text ? text.map((x) => <a>{x.attributes.text2}</a>) : 'Home'}</a></span>
+                              <span>Call Us : <a href="tel:817-991-0254">{text ? text.map((x) => <a>{x.attributes.text2}</a>) : '817-991-0254'}</a></span>
                            </div>
                            <div className="tp-header-btn-three">
                               <Link to="/contact" className="yellow-btn">
-                                 <i className="flaticon-enter"></i> {text ? text.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}</Link>
+                                 <i className="flaticon-enter"></i> {text ? text.map((x) => <a>{x.attributes.text3}</a>) : 'Free Quote'}</Link>
                            </div>
                         </div>
                      </div>

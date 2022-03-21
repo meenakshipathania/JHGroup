@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { FaMapMarkerAlt,FaPhoneAlt,FaEnvelopeOpen } from 'react-icons/fa';
 
+const ApiUrl = 'http://localhost:1337/api/contacts';
 const ContactForm = () => {
+    const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
     return (
         <>
             <section className="tp-contact-area pb-120">
@@ -9,8 +26,8 @@ const ContactForm = () => {
                     <div className="row">
                         <div className="col-lg-10">
                             <div className="section-title-wrapper-two mb-50 wow fadeInUp" data-wow-delay=".2s">
-                                <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">Get Free Estimate</h5>
-                                <h2 className="tp-section-title heading-color-black">If you Have Any Query, Don’t Hesitate <br/>Contact with us </h2>
+                                <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">{text ? text.map((x) => <span>{x.attributes.text}</span>) : 'Office Address'}</h5>
+                                <h2 className="tp-section-title heading-color-black">{text ? text.map((x) => <span>{x.attributes.text1}</span>) : 'Office Address'}</h2>
                             </div>
                         </div>
                     </div>
@@ -23,8 +40,8 @@ const ContactForm = () => {
                                             <i> <FaMapMarkerAlt className='contact_icon'/> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
-                                            <h4 className="tp-contact-info-title mb-15">Address</h4>
-                                            <p>5/A 5suvastu arcade, 3rd Floor <br/>palace road, London.</p>
+                                            <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head1}</span>) : 'Office Address'}</h4>
+                                            <p>{text ? text.map((x) => <span>{x.attributes.address}</span>) : 'Home'}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -34,9 +51,9 @@ const ContactForm = () => {
                                             <i> <FaPhoneAlt className='contact_icon'/> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
-                                            <h4 className="tp-contact-info-title mb-15">Phone</h4>
-                                            <a href="tel:333888200-55">333888200-55</a>
-                                            <a href="tel:444555300-25">444555300-25</a>
+                                            <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head2}</span>) : 'Free Contact'}</h4>
+                                            <a href="tel:333888200-55">{text ? text.map((x) => <span>{x.attributes.phone}</span>) : 'Home'}</a>
+                                            {/* <a href="tel:444555300-25">444555300-25</a> */}
                                         </div>
                                     </div>
                                 </div>
@@ -46,9 +63,9 @@ const ContactForm = () => {
                                             <i > <FaEnvelopeOpen className='contact_icon'/> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
-                                            <h4 className="tp-contact-info-title mb-15">Email</h4>
-                                            <a href="mailto:info@themepure.com">info@themepure.com</a>
-                                            <a href="mailto:info@themepure.com">info@themepure.com</a>
+                                            <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head3}</span>) : 'Email Address'}</h4>
+                                            <a href="mailto:info@themepure.com">{text ? text.map((x) => <span>{x.attributes.email}</span>) : 'Home'}</a>
+                                            {/* <a href="mailto:info@themepure.com">info@themepure.com</a> */}
                                         </div>
                                     </div>
                                 </div>
@@ -75,11 +92,13 @@ const ContactForm = () => {
                                     <div className="col-md-6 custom-pad-20">
                                         <div className="tp-contact-form-field select-field-arrow mb-20">
                                             <select>
-                                                <option defaultValue="">Choose Subject</option>
-                                                <option defaultValue="">House Cleaning</option>
-                                                <option defaultValue="">Office Cleaning</option>
-                                                <option defaultValue="">Kitchen Cleaning</option>
-                                                <option defaultValue="">Club Cleaning</option>
+                                            <option defaultValue="1">Service Name</option>
+                                            <option defaultValue="2">Commercial Service</option>
+                                            <option defaultValue="3">Residential Service</option>
+                                            <option defaultValue="4">Industrial Service</option>
+                                            <option defaultValue="5">Retaining Walls Service</option>
+                                            <option defaultValue="6">Lawn Care service</option>
+                                            <option defaultValue="6">Drining service</option>
                                             </select>
                                         </div>
                                     </div>

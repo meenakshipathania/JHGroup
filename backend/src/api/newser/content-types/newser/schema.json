@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsers",
+  "info": {
+    "singularName": "newser",
+    "pluralName": "newsers",
+    "displayName": "newser",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    }
+  }
+}

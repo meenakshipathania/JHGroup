@@ -38,9 +38,9 @@ const AboutArea = () => {
                      <div className="tp-about-text tp-about-inner-page-text z-index wow fadeInUp" data-wow-delay=".6s">
                         <div className="section-title-wrapper mb-30">
                            <h5 className="tp-section-subtitle common-yellow-shape mb-20 heading-color-black">{logo ? logo.map((x) => <p>{x.attributes.text1}</p>) : 'Home'}</h5>
-                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />Upthyhds</h2>
+                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />up</h2>
                         </div>
-                        <p className="mb-40">Can consent to the use of such technologies byclosing this notice senectus amet sodales habitant dapibus </p>
+                        <p className="mb-40">Can consent to the use of such byclosing this notice senectus amet sodales habitant dapibus </p>
                         <div className="row mb-10">
                            <div className="col-sm-6">
                               <div className="tp-about-service mb-30">

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gallaries",
+  "info": {
+    "singularName": "gallary",
+    "pluralName": "gallaries",
+    "displayName": "gallary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

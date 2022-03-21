@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "q1": {
+      "type": "string"
+    },
+    "a1": {
+      "type": "string"
+    },
+    "q2": {
+      "type": "string"
+    },
+    "a2": {
+      "type": "string"
+    },
+    "q3": {
+      "type": "string"
+    },
+    "a3": {
+      "type": "string"
+    }
+  }
+}

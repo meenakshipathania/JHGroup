@@ -4342,6 +4342,23 @@ select {
   position: relative;
   overflow: hidden;
 }
+.gallary {
+  width: 100%;
+  min-width: 100%;
+  /* margin-right: 40px; */
+  position: relative;
+  overflow: hidden;
+}
+img.image {
+  width: 100%;
+}
+.gallary img{
+  width: 100%;
+  object-fit: fill;
+}
+  /* margin-right: 40px; */
+  /* position: relative; */
+  /* overflow: hidden;
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .tp-service-three-img {
     margin-right: 25px;

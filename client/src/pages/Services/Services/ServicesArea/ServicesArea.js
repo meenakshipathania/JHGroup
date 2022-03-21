@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ServicePageArea from '../../../../components/ServiceArea/ServicePageArea';
 
-const ApiUrl = 'http://localhost:1337/api/services';
+const ApiUrl = 'http://localhost:1337/api/newsers';
 const ServicesArea = () => {
    const [text, Settext] = useState();
    useEffect(() => {
@@ -26,8 +26,8 @@ const ServicesArea = () => {
                <div className="row">
                   <div className="col-12">
                      <div className="section-title-wrapper text-center mb-55 wow fadeInUp" data-wow-delay=".3s">
-                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">Our Best Services</h5>
-                        <h2 className="tp-section-title heading-color-black">Quality Cleaning Making <br/>you Much Happy</h2>
+                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">{text ? text.map((x) => <span>{x.attributes.text}</span>) : 'Services'}</h5>
+                        <h2 className="tp-section-title heading-color-black">{text ? text.map((x) => <span>{x.attributes.text1}</span>) : 'Office Address'}<br/>{text ? text.map((x) => <span>{x.attributes.text2}</span>) : 'Office Address'}</h2>
                      </div>
                   </div>
                </div>
