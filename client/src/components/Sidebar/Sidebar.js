@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Offcanvas } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { FaFacebookF } from 'react-icons/fa';
@@ -6,12 +7,45 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import Collapsible from 'react-collapsible';
 
+const NewUrl = 'http://localhost:1337/api/navbars';
+const ApiUrl = 'http://localhost:1337/api/contacts';
 const Sidebar = ({ show, handleClose }) => {
-   const Home = <NavLink to="/home">Home</NavLink>
-   const Pages = <NavLink to="/">Pages </NavLink>
-   const Services = <NavLink to="/services">Services </NavLink>
-   const Projects = <NavLink to="/projects">Projects</NavLink>
-   const Blog = <NavLink to="/blogSidebar">Blog</NavLink>
+   const [nav, Setnav] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios.get(NewUrl, { cancelToken: request.token })
+            .then((res) => {
+               Setnav(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
+   const [text, Settext] = useState();
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      setTimeout(() => {
+         axios
+            .get(ApiUrl, { cancelToken: request.token })
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      }, 2000);
+      return () => request.cancel();
+   });
+
+
+   const Home = <NavLink to="/homeThree">{nav ? nav.map((x) => <a>{x.attributes.tag1}</a>) : 'Home'}</NavLink>
+   const Services = <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'} </NavLink>
+   const Gallary = <NavLink to="/gallary">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Gallary'} </NavLink>
+   const About_us = <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'About Us'}</NavLink>
+   const contact = <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Contact'}</NavLink>
    return (
       <>
 
@@ -32,7 +66,7 @@ const Sidebar = ({ show, handleClose }) => {
                      </ul>
                   </Collapsible>
 
-                  <Collapsible trigger={Pages} triggerTagName="div"
+                  <Collapsible trigger={Services} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/about">About</NavLink></li>
@@ -44,7 +78,7 @@ const Sidebar = ({ show, handleClose }) => {
                      </ul>
                   </Collapsible>
 
-                  <Collapsible trigger={Services} triggerTagName="div"
+                  <Collapsible trigger={Gallary} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/services">Services</NavLink></li>
@@ -52,7 +86,7 @@ const Sidebar = ({ show, handleClose }) => {
                      </ul>
                   </Collapsible>
 
-                  <Collapsible trigger={Projects} triggerTagName="div"
+                  <Collapsible trigger={About_us} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/projects">Projects</NavLink></li>
@@ -60,7 +94,7 @@ const Sidebar = ({ show, handleClose }) => {
                      </ul>
                   </Collapsible>
 
-                  <Collapsible trigger={Blog} triggerTagName="div"
+                  <Collapsible trigger={contact} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink></li>
@@ -68,9 +102,9 @@ const Sidebar = ({ show, handleClose }) => {
                      </ul>
                   </Collapsible>
 
-                  <div className='contact_nav text-white font-bold'>
+                  {/* <div className='contact_nav text-white font-bold'>
                      <NavLink className="font-bold" to="/contact">Contact</NavLink>
-                  </div>
+                  </div> */}
 
                   <div className="fix">
                      <div className="side-info">
@@ -80,9 +114,9 @@ const Sidebar = ({ show, handleClose }) => {
                               <div className="contact-list mb-30">
                                  <h4>Contact Info</h4>
                                  <ul>
-                                    <li><i className="flaticon-pin"></i>28/4 Palmal, London</li>
-                                    <li><i className="flaticon-email"></i><a href="mailto:info@klenar.com">info@klenar.com</a></li>
-                                    <li><i className="flaticon-phone-call"></i><a href="tel:33388820055">333 888 200 - 55</a></li>
+                                    <li><i className="flaticon-pin"></i>{text ? text.map((x) => <a>{x.attributes.address}</a>) : 'Home'}</li>
+                                    <li><i className="flaticon-email"></i><a href="mailto:info@klenar.com">{text ? text.map((x) => <a>{x.attributes.email}</a>) : 'Email'}</a></li>
+                                    <li><i className="flaticon-phone-call"></i><a href="tel:817-991-0254">{text ? text.map((x) => <a>{x.attributes.phone}</a>) : 'Home'}</a></li>
                                  </ul>
                                  <div className="sidebar__menu--social">
                                     <a className="text-white" href="/"><i><FaFacebookF className='icon' /> </i></a>

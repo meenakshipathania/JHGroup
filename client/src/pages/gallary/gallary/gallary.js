@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import ServicePageArea from '../../../../components/ServiceArea/ServicePageArea';
 
 
 
@@ -42,20 +41,9 @@ const HomeThreePopularServices = () => {
                ? text.map((x) => (
                   <div className="col-lg-6">
                      <div className="tp-service-three tp-service-four mb-30 wow fadeInUp" data-wow-delay="1.2s">
-                        <div className="gallary">
-                           <a href="/"><img className="image" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
+                        <div className="gallary" style={{width: "100%"}}>
+                           <a href="/"><img style={{width: "100%"}} src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
                         </div>
-                        {/* <div className='col-lg-6'>
-                           <div className="tp-service-three-text fix">
-                              <h4 className={colorClass ? "home_three_title tp-service-three-title mb-20 heading-color-black-with-hover" : "tp-service-three-title mb-20 heading-color-black-with-hover"}>
-                                 <Link to="/servicesDetails"> <a>{x.attributes.heading}</a></Link></h4>
-                              <p className="mb-30"><a>{x.attributes.para}</a></p>
-                              <div className="tp-service-three-text-btn">
-                                 <Link to="/servicesDetails" className="yellow-btn service__btn">
-                                    <i className="flaticon-enter"></i><a>{x.attributes.text}</a></Link>
-                              </div>
-                           </div>
-                        </div> */}
                      </div>
                   </div>
                ))

@@ -28,17 +28,17 @@ const AboutArea = () => {
                      <div className="tp-about-img-two tp-abouts-img-two position-relative mr-80 wow fadeInUp" data-wow-delay=".4s">
                         <img src="assets/img/about/about-img-2.jpg" className="img-fluid" alt="img not found" />
                         <img src="assets/img/about/about-img-3.png" className="img-fluid img-second" alt="img not found" />
-                        <div className="tp-about-img-two-badge">
+                        {/* <div className="tp-about-img-two-badge">
                            <h3>20</h3>
                            <h5>years <br />Experience</h5>
-                        </div>
+                        </div> */}
                      </div>
                   </div>
                   <div className="col-xl-6 col-md-10">
                      <div className="tp-about-text tp-about-inner-page-text z-index wow fadeInUp" data-wow-delay=".6s">
                         <div className="section-title-wrapper mb-30">
                            <h5 className="tp-section-subtitle common-yellow-shape mb-20 heading-color-black">{logo ? logo.map((x) => <p>{x.attributes.text1}</p>) : 'Home'}</h5>
-                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />up</h2>
+                           <h2 className="tp-section-title heading-color-black">Our Success Cleaning <br />upto</h2>
                         </div>
                         <p className="mb-40">Can consent to the use of such byclosing this notice senectus amet sodales habitant dapibus </p>
                         <div className="row mb-10">
@@ -62,7 +62,7 @@ const AboutArea = () => {
                                  <div className="tp-about-service-text">
                                     <h4 className="tp-about-service-text-title mb-15 heading-color-black-with-hover">
                                        <Link to="/services">Commercial Cleaning Services</Link></h4>
-                                    <p>Duis congue atend lorem consequat interdum pretium ligula semper</p>
+                                    <p>Duis congue atend lorem conyfhfghsequat interdum pretium ligula semper</p>
                                  </div>
                               </div>
                            </div>

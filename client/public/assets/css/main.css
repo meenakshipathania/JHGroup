@@ -4342,20 +4342,7 @@ select {
   position: relative;
   overflow: hidden;
 }
-.gallary {
-  width: 100%;
-  min-width: 100%;
-  /* margin-right: 40px; */
-  position: relative;
-  overflow: hidden;
-}
-img.image {
-  width: 100%;
-}
-.gallary img{
-  width: 100%;
-  object-fit: fill;
-}
+
   /* margin-right: 40px; */
   /* position: relative; */
   /* overflow: hidden;

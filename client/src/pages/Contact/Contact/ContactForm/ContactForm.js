@@ -53,7 +53,6 @@ const ContactForm = () => {
                                         <div className="tp-contact-info-text">
                                             <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head2}</span>) : 'Free Contact'}</h4>
                                             <a href="tel:333888200-55">{text ? text.map((x) => <span>{x.attributes.phone}</span>) : 'Home'}</a>
-                                            {/* <a href="tel:444555300-25">444555300-25</a> */}
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +64,6 @@ const ContactForm = () => {
                                         <div className="tp-contact-info-text">
                                             <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head3}</span>) : 'Email Address'}</h4>
                                             <a href="mailto:info@themepure.com">{text ? text.map((x) => <span>{x.attributes.email}</span>) : 'Home'}</a>
-                                            {/* <a href="mailto:info@themepure.com">info@themepure.com</a> */}
                                         </div>
                                     </div>
                                 </div>
