@@ -2,23 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaMapMarkerAlt,FaPhoneAlt,FaEnvelopeOpen } from 'react-icons/fa';
 
-const ApiUrl = 'http://localhost:1337/api/contacts';
 const ContactForm = () => {
-    const [text, Settext] = useState();
-   useEffect(() => {
-      const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
-            .then((res) => {
-               Settext(res.data.data);
-            })
-            .catch((error) => {
-               console.log(error);
-            });
-      }, 2000);
-      return () => request.cancel();
-   });
+    const [text, Settext] = useState([]);
+    useEffect(() => {
+       const request = axios.CancelToken.source();
+          axios.get('http://localhost:1337/api/contacts')
+             .then((res) => {
+                Settext(res.data.data);
+             })
+             .catch((error) => {
+                console.log(error);
+             });
+       return () => request.cancel();
+    }, []);
+    
     return (
         <>
             <section className="tp-contact-area pb-120">

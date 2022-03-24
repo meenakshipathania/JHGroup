@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../../../components/shared/Footer/Footer';
-import Navigation from '../../../components/shared/Navigation/Navigation';
+import Navigation from '../../HomeThree/HomeThree/HomeThreeNavBar/HomeThreeNavBar';
 import AboutArea from '../../Home/Home/AboutArea/AboutArea';
 import AboutBanner from './AboutBanner/AboutBanner';
 import AboutFaq from './AboutFaq/AboutFaq';

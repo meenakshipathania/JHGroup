@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ApiUrl = 'http://localhost:1337/api/contacts';
 const HomeThreeContact = () => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/contacts')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    return (
       <>
          <div className="tp-contact-cta-area position-relative pt-85">

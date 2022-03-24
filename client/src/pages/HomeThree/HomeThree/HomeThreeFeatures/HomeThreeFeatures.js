@@ -5,23 +5,19 @@ import HomeThreeSingleFeature1 from '../../../../components/HomeThreeSingleFeatu
 import HomeThreeSingleFeature2 from '../../../../components/HomeThreeSingleFeature2/HomeThreeSingleFeature2';
 import HomeThreeSingleFeature3 from '../../../../components/HomeThreeSingleFeature3/HomeThreeSingleFeature3';
 
-const ApiUrl = 'http://localhost:1337/api/works';
 const HomeThreeFeatures = () => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/works')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    return (
       <>
          <section className="tp-feature-area-three pt-115 pb-80">

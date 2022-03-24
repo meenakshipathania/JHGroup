@@ -2,25 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ServicePageArea from '../../../../components/ServiceArea/ServicePageArea';
 
-
-
-const ApiUrl = 'http://localhost:1337/api/services';
 const HomeThreePopularServices = () => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/services')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    return (
       <>
          <section className="tp-service-area-three pt-115 pb-200 bg-gray-light">

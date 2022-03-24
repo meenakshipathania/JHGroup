@@ -2,23 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const ApiUrl = 'http://localhost:1337/api/work4s';
 const HomeThreeSingleFeature = ({icon}) => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/work4s')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    return (
       <>
          <div className="col-xl-3 col-sm-6">

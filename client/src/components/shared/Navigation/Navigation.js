@@ -5,63 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar';
 import { FaBars } from 'react-icons/fa';
 
-const apiUrl = 'http://localhost:1337/api/logos?populate=*';
-const ApiUrl = 'http://localhost:1337/api/contacts';
-const NewUrl = 'http://localhost:1337/api/navbars';
 const Navigation = () => {
-   const [logo, Setlogo] = useState();
-   useEffect(() => {
-      const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(apiUrl, { cancelToken: request.token })
-            .then((res) => {
-               Setlogo(res.data.data);
-            })
-            .catch((error) => {
-               console.log(error);
-            });
-      }, 2000);
-      return () => request.cancel();
-   });
-
-   function imageurl(atttribute) {
-      const baseurl = 'http://localhost:1337';
-      const dataurl = atttribute.image.data[0].attributes.url;
-      return baseurl + dataurl;
-   }
-
-   const [text, Settext] = useState();
-   useEffect(() => {
-      const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
-            .then((res) => {
-               Settext(res.data.data);
-            })
-            .catch((error) => {
-               console.log(error);
-            });
-      }, 2000);
-      return () => request.cancel();
-   });
-
-   const [nav, Setnav] = useState();
-   useEffect(() => {
-      const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(NewUrl, { cancelToken: request.token })
-            .then((res) => {
-               Setnav(res.data.data);
-            })
-            .catch((error) => {
-               console.log(error);
-            });
-      }, 2000);
-      return () => request.cancel();
-   });
    const [show, setShow] = useState(false);
 
    const handleClose = () => setShow(false);
@@ -91,8 +35,8 @@ const Navigation = () => {
                                     <i className="flaticon-pin"></i>
                                  </div>
                                  <div className="tp-header-top-info-single-text">
-                                    <span className="tp-header-top-info-single-label">{text ? text.map((x) => <span>{x.attributes.head1}</span>) : 'Home'}</span>
-                                    <span className="tp-header-top-info-single-content font-medium">{text ? text.map((x) => <a>{x.attributes.address}</a>) : 'Home'}</span>
+                                    <span className="tp-header-top-info-single-label">Free Contact</span>
+                                    <span className="tp-header-top-info-single-content font-medium">28/4 Palmal, London</span>
                                  </div>
                               </div>
                               <div className="tp-header-top-info-single">
@@ -100,7 +44,7 @@ const Navigation = () => {
                                     <i className="flaticon-email"></i>
                                  </div>
                                  <div className="tp-header-top-info-single-text">
-                                    <span className="tp-header-top-info-single-label">{text ? text.map((x) => <span>{x.attributes.head3}</span>) : 'Home'}</span>
+                                    <span className="tp-header-top-info-single-label">Email us</span>
                                     <a href="mailto:info@klenar.com" className="tp-header-top-info-single-content font-medium text-white">info@klenar.com</a>
                                  </div>
                               </div>
@@ -108,12 +52,7 @@ const Navigation = () => {
                         </div>
                         <div className="col-xxl-4 col-xl-2">
                            <div className="header-logo text-center">
-                              <Link to="/">
-                                 {logo
-                                    ? logo.map((x) => (
-                                       <a href="/"><img src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
-                                    ))
-                                    : 'hgfhgf'}
+                              <Link to="/"><img src="assets/img/logo/logo-white.png" className="img-fluid" alt="logo not found" />
                               </Link>
                            </div>
                         </div>
@@ -124,8 +63,8 @@ const Navigation = () => {
                                     <i className="flaticon-phone-call"></i>
                                  </div>
                                  <div className="tp-header-top-info-single-text">
-                                    <span className="tp-header-top-info-single-label">{text ? text.map((x) => <span>{x.attributes.head2}</span>) : 'Home'}</span>
-                                    <a href="tel:(817) 991-0254" className="tp-header-top-info-single-content font-medium text-white">{text ? text.map((x) => <a>{x.attributes.phone}</a>) : 'Home'}</a>
+                                    <span className="tp-header-top-info-single-label">Free Call</span>
+                                    <a href="tel:33388820055" className="tp-header-top-info-single-content font-medium text-white">333 888 200 - 55</a>
                                  </div>
                               </div>
                               <div className="tp-header-top-info-single">
@@ -145,20 +84,6 @@ const Navigation = () => {
                         <div className="col-xl-2 col-8 tp-sticky-column">
                            <div className="tp-sticky-logo">
                               <Link to="/">
-                                 {logo
-                                    ? logo.map((x) => (
-                                       <a href="/">
-                                          <img
-                                             src={
-                                                x.attributes
-                                                   ? imageurl(x.attributes)
-                                                   : 'hgghtyu'
-                                             }
-                                             alt=""
-                                          />
-                                       </a>
-                                    ))
-                                    : 'hgfhgf'}
                               </Link>
                            </div>
                         </div>
@@ -167,7 +92,7 @@ const Navigation = () => {
                               <div className="tp-main-menu">
                                  <nav id="tp-mobile-menu">
                                     <ul className="text-center">
-                                       <li className="menu-item-has-children"><NavLink to="/">{nav ? nav.map((x) => <a>{x.attributes.tag1}</a>) : 'Home'}</NavLink>
+                                       <li className="menu-item-has-children"><NavLink to="/">Home</NavLink>
                                           <ul className="sub-menu">
                                              <li><NavLink to="/">Home Style 1</NavLink></li>
                                              <li><NavLink to="/homeTwo">Home Style 2</NavLink></li>
@@ -175,8 +100,8 @@ const Navigation = () => {
                                           </ul>
                                        </li>
                                        <li className="menu-item-has-children">
-                                          <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'}</NavLink>
-                                          {/* <ul className="sub-menu">
+                                          <NavLink to="/about">Pages </NavLink>
+                                          <ul className="sub-menu">
                                              <li><NavLink to="/about">About</NavLink></li>
                                              <li><NavLink to="/appointment">Appointment</NavLink></li>
                                              <li><NavLink to="/pricing">Pricing</NavLink></li>
@@ -184,24 +109,24 @@ const Navigation = () => {
                                              <li><NavLink to="/teamDetails">Team Details</NavLink>
                                              </li>
                                              <li><NavLink to="/faq">Faq</NavLink></li>
-                                          </ul> */}
+                                          </ul>
                                        </li>
                                        <li className="menu-item-has-children">
-                                          <NavLink to="/gallary">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Gallary'}</NavLink>
-                                          {/* <ul className="sub-menu">
+                                          <NavLink to="/services">Services </NavLink>
+                                          <ul className="sub-menu">
                                              <li><NavLink to="/services">Services</NavLink></li>
                                              <li><NavLink to="/servicesDetails">Services Details</NavLink></li>
-                                          </ul> */}
+                                          </ul>
                                        </li>
                                        <li className="menu-item-has-children">
-                                          <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'About Us'}</NavLink>
-                                          {/* <ul className="sub-menu">
+                                          <NavLink to="/projects">Projects</NavLink>
+                                          <ul className="sub-menu">
                                              <li><NavLink to="/projects">Projects</NavLink></li>
                                              <li><NavLink to="/projectsDetails">Projects Details
                                              </NavLink></li>
-                                          </ul> */}
+                                          </ul>
                                        </li>
-                                       {/* <li className="menu-item-has-children">
+                                       <li className="menu-item-has-children">
                                           <NavLink to="/blogSidebar">Blog</NavLink>
                                           <ul className="sub-menu">
                                              <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink>
@@ -209,8 +134,8 @@ const Navigation = () => {
                                              <li><NavLink to="/blogDetails">Blog Details</NavLink>
                                              </li>
                                           </ul>
-                                       </li> */}
-                                       <li><NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Contact'}</NavLink></li>
+                                       </li>
+                                       <li><NavLink to="/contact">Contact</NavLink></li>
                                     </ul>
                                  </nav>
                               </div>

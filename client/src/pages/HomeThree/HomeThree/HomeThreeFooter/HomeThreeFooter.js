@@ -6,24 +6,19 @@ import { FaFacebookF } from 'react-icons/fa';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 
-const apiUrl = 'http://localhost:1337/api/logos?populate=*';
 const HomeThreeFooter = () => {
-   const [logo, Setlogo] = useState();
+   const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(apiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/logos?populate=*')
             .then((res) => {
                Setlogo(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
-
+   }, []);
    function imageurl(atttribute) {
       const baseurl = 'http://localhost:1337';
       const dataurl = atttribute.image.data[0].attributes.url;

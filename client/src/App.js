@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home/Home/Home';
+// import Home from './pages/Home/Home/Home';
 import About from './pages/About/About/About';
 import Gallary from './pages/gallary/main';
 import Appointment from './pages/Appointment/Appointment/Appointment';
@@ -18,7 +18,7 @@ import BlogDetails from './pages/BlogDetails/BlogDetails/BlogDetails';
 import Contact from './pages/Contact/Contact/Contact';
 import { WOW } from 'wowjs';
 import ScrollToTop from './components/ScrollToTop';
-import HomeTwo from './pages/HomeTwo/HomeTwo/HomeTwo';
+// import HomeTwo from './pages/HomeTwo/HomeTwo/HomeTwo';
 import HomeThree from './pages/HomeThree/HomeThree/HomeThree';
 
 const App = () => {
@@ -32,9 +32,9 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/homeTwo" element={<HomeTwo />} />
+          <Route path="/" element={<HomeThree />} />
+          {/* <Route path="/home" element={<Home />} /> */}
+          {/* <Route path="/homeTwo" element={<HomeTwo />} /> */}
           <Route path="/homeThree" element={<HomeThree />} />
           <Route path="/about" element={<About />} />
           <Route path="/appointment" element={<Appointment />} />

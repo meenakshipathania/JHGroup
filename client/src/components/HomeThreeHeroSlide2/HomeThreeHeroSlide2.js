@@ -3,23 +3,19 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Fade } from 'react-reveal';
 
-const apiUrl = 'http://localhost:1337/api/slider2s';
 const HomeThreeHeroSlide = () => {
-    const [slider, Setslider] = useState();
-    useEffect(() => {
-        const request = axios.CancelToken.source();
-        setTimeout(() => {
-            axios
-                .get(apiUrl, { cancelToken: request.token })
-                .then((res) => {
-                    Setslider(res.data.data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }, 2000);
-        return () => request.cancel();
-    });
+    const [slider, Setslider] = useState([]);
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+         axios.get('http://localhost:1337/api/slider2s')
+            .then((res) => {
+               Setslider(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      return () => request.cancel();
+   }, []);
 
     return (
         <>

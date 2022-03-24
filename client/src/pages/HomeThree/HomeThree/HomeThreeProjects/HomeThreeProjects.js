@@ -4,23 +4,19 @@ import { Link } from 'react-router-dom';
 import HomeThreeSingleProject from '../../../../components/HomeThreeSingleProject/HomeThreeSingleProject';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
-const ApiUrl = 'http://localhost:1337/api/projects';
 const HomeThreeProjects = () => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/projects')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
 
    return (
       <>

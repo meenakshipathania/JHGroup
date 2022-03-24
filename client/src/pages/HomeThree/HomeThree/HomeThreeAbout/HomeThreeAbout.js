@@ -4,23 +4,19 @@ import { Link } from 'react-router-dom';
 import HomeThreeSIngleAbout from '../../../../components/HomeThreeSIngleAbout/HomeThreeSIngleAbout';
 import HomeThreeSingleAbout1 from '../../../../components/HomeThreeSingleAbout1/HomeThreeSingleAbout1';
 
-const apiUrl = 'http://localhost:1337/api/abouts';
 const HomeThreeAbout = () => {
-   const [logo, Setlogo] = useState();
+   const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(apiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/abouts')
             .then((res) => {
                Setlogo(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    return (
       <>
          <section className="tp-about-area-two position-relative pt-120 pb-85 bg-gray-light">

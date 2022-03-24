@@ -7,39 +7,32 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import Collapsible from 'react-collapsible';
 
-const NewUrl = 'http://localhost:1337/api/navbars';
-const ApiUrl = 'http://localhost:1337/api/contacts';
 const Sidebar = ({ show, handleClose }) => {
-   const [nav, Setnav] = useState();
+   const [nav, Setnav] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios.get(NewUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/navbars')
             .then((res) => {
                Setnav(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
-   const [text, Settext] = useState();
+   }, []);
+
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/contacts')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
-
+   }, []);
 
    const Home = <NavLink to="/homeThree">{nav ? nav.map((x) => <a>{x.attributes.tag1}</a>) : 'Home'}</NavLink>
    const Services = <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'} </NavLink>

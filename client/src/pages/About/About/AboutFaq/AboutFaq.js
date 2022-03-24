@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ApiUrl = 'http://localhost:1337/api/questions?populate=*';
 const AboutFaq = () => {
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/questions?populate=*')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    function imageurl(atttribute) {
       const baseurl = 'http://localhost:1337';
       const dataurl = atttribute.image.data[0].attributes.url;

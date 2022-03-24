@@ -4,62 +4,50 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
-const apiUrl = 'http://localhost:1337/api/logos?populate=*';
-const NewUrl = 'http://localhost:1337/api/navbars';
-const NewAPIUrl = 'http://localhost:1337/api/quotes';
 const HomeThreeNavBar = () => {
-   const [logo, Setlogo] = useState();
+   const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(apiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/logos?populate=*')
             .then((res) => {
                Setlogo(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
-
+   }, []);
    function imageurl(atttribute) {
       const baseurl = 'http://localhost:1337';
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }
-   const [nav, Setnav] = useState();
+   const [nav, Setnav] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(NewUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/navbars')
             .then((res) => {
                Setnav(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
 
-   const [text, Settext] = useState();
+   const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(NewAPIUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/quotes')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
+
    const [show, setShow] = useState(false);
 
    const handleClose = () => setShow(false);
@@ -96,15 +84,15 @@ const HomeThreeNavBar = () => {
                            <nav id="tp-mobile-menu">
                               <ul>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/">{nav ? nav.map((x) => <a>{x.attributes.tag1}</a>) : 'Home'}</NavLink>
-                                    <ul className="sub-menu">
+                                    <NavLink to="/">{nav ? nav.map((x) => <span>{x.attributes.tag1}</span>) : 'Home'}</NavLink>
+                                    {/* <ul className="sub-menu">
                                        <li><NavLink to="/">Home Style 1</NavLink></li>
                                        <li><NavLink to="/homeTwo">Home Style 2</NavLink></li>
                                        <li><NavLink to="/homeThree">Home Style 3</NavLink></li>
-                                    </ul>
+                                    </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'}</NavLink>
+                                    <NavLink to="/services">{nav ? nav.map((x) => <span>{x.attributes.tag2}</span>) : 'Services'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/about">About</NavLink></li>
                                        <li><NavLink to="/appointment">Appointment</NavLink></li>
@@ -115,14 +103,14 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/gallary">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Gallary'}</NavLink>
+                                    <NavLink to="/gallary">{nav ? nav.map((x) => <span>{x.attributes.tag3}</span>) : 'Gallary'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/services">Services</NavLink></li>
                                        <li><NavLink to="/servicesDetails">Services Details</NavLink></li>
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'About Us'}</NavLink>
+                                    <NavLink to="/about">{nav ? nav.map((x) => <span>{x.attributes.tag4}</span>) : 'About Us'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/projects">Projects</NavLink></li>
                                        <li><NavLink to="/projectsDetails">Projects Details
@@ -130,7 +118,7 @@ const HomeThreeNavBar = () => {
                                     </ul> */}
                                  </li>
                                  <li className="menu-item-has-children">
-                                    <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Contact'}</NavLink>
+                                    <NavLink to="/contact">{nav ? nav.map((x) => <span>{x.attributes.tag5}</span>) : 'Contact'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink>
                                        </li>

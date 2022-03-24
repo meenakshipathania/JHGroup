@@ -2,44 +2,36 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import HomeThreeSingleChoseArea from '../../../../components/HomeThreeSingleChoseArea/HomeThreeSingleChoseArea';
 
-const ApiUrl = 'http://localhost:1337/api/chooses?populate=*';
-const NewUrl = 'http://localhost:1337/api/choose1s';
 const HomeThreeChoseArea = () => {
    const [text, Settext] = useState();
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(ApiUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/chooses?populate=*')
             .then((res) => {
                Settext(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
    function imageurl(atttribute) {
       const baseurl = 'http://localhost:1337';
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }
-   const [data, Setdata] = useState();
+   const [data, Setdata] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      setTimeout(() => {
-         axios
-            .get(NewUrl, { cancelToken: request.token })
+         axios.get('http://localhost:1337/api/choose1s')
             .then((res) => {
                Setdata(res.data.data);
             })
             .catch((error) => {
                console.log(error);
             });
-      }, 2000);
       return () => request.cancel();
-   });
+   }, []);
 
    return (
       <>
