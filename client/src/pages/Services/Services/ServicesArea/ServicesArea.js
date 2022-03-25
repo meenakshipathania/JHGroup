@@ -6,7 +6,7 @@ const ServicesArea = () => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/newsers')
+         axios.get('http://165.227.11.15:1337/api/newsers')
             .then((res) => {
                Settext(res.data.data);
             })

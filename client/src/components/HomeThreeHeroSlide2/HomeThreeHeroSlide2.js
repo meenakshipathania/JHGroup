@@ -7,7 +7,7 @@ const HomeThreeHeroSlide = () => {
     const [slider, Setslider] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/slider2s')
+         axios.get('http://165.227.11.15:1337/api/slider2s')
             .then((res) => {
                Setslider(res.data.data);
             })

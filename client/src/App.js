@@ -11,6 +11,7 @@ import TeamDetails from './pages/TeamDetails/TeamDetails/TeamDetails';
 import Faq from './pages/Faq/Faq/Faq';
 import Services from './pages/Services/Services/Services';
 import ServicesDetails from './pages/ServicesDetails/ServicesDetails/ServicesDetails';
+import Demo from './pages/Demo/Demo/Demo'; 
 import Projects from './pages/Projects/Projects/Projetcs';
 import ProjectsDetails from './pages/ProjectsDetails/ProjectsDetails/ProjectsDetails';
 import BlogsSidebar from './pages/BlogsSidebar/BlogsSidebar/BlogsSidebar';
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/faq" element={<Faq />} />
           <Route path="/services" element={<Services />} />
           <Route path="/servicesDetails" element={<ServicesDetails />} />
+          <Route path="/demo" element={<Demo />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projectsDetails" element={<ProjectsDetails />} />
           <Route path="/blogSidebar" element={<BlogsSidebar />} />

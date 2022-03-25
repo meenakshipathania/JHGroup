@@ -8,7 +8,7 @@ const HomeThreeNavBar = () => {
    const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/logos?populate=*')
+         axios.get('http://165.227.11.15:1337/api/logos?populate=*')
             .then((res) => {
                Setlogo(res.data.data);
             })
@@ -18,14 +18,14 @@ const HomeThreeNavBar = () => {
       return () => request.cancel();
    }, []);
    function imageurl(atttribute) {
-      const baseurl = 'http://localhost:1337';
+      const baseurl = 'http://165.227.11.15:1337';
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }
    const [nav, Setnav] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/navbars')
+         axios.get('http://165.227.11.15:1337/api/navbars')
             .then((res) => {
                Setnav(res.data.data);
             })
@@ -38,7 +38,7 @@ const HomeThreeNavBar = () => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/quotes')
+         axios.get('http://165.227.11.15:1337/api/quotes')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -73,7 +73,7 @@ const HomeThreeNavBar = () => {
                            <Link to="/">
                               {logo
                                  ? logo.map((x) => (
-                                    <a href="/"><img src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt=""/></a>
+                                    <a href="/"><img className="mb-2 logo" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt=""/></a>
                                     ))
                                  : 'hgfhgf'}
                            </Link>

@@ -6,7 +6,7 @@ const AboutArea = () => {
    const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/abouts')
+         axios.get('http://165.227.11.15:1337/api/abouts')
             .then((res) => {
                Setlogo(res.data.data);
             })

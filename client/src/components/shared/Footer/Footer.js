@@ -17,7 +17,7 @@ const Footer = () => {
    const [logo, Setlogo] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/logos?populate=*')
+         axios.get('http://165.227.11.15:1337/api/logos?populate=*')
             .then((res) => {
                Setlogo(res.data.data);
             })
@@ -28,7 +28,7 @@ const Footer = () => {
    }, []);
 
    function imageurl(atttribute) {
-      const baseurl = 'http://localhost:1337';
+      const baseurl = 'http://165.227.11.15:1337';
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }

@@ -6,7 +6,7 @@ const ServicePageArea = ({ ser_icon_img, colorClass }) => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/service1s?populate=*')
+         axios.get('http://165.227.11.15:1337/api/service1s?populate=*')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -16,7 +16,7 @@ const ServicePageArea = ({ ser_icon_img, colorClass }) => {
       return () => request.cancel();
    }, []);
    function imageurl(atttribute) {
-      const baseurl = 'http://localhost:1337';
+      const baseurl = 'http://165.227.11.15:1337';
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }
