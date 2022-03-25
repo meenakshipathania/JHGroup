@@ -2432,7 +2432,7 @@ select {
   padding: 41px 0px;
 }
 .tp-main-menu-three ul li a::before {
-  bottom: 40px;
+  bottom: 30px;
 }
 
 .tp-header-right-three {

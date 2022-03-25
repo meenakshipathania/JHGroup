@@ -20,12 +20,14 @@ const ServicesDetailsFaq = () => {
                 <div className="tp-faqs-left-sidebar tp-services-sidebar mb-30">
                   <h4 className="tp-faqs-left-sidebar-title">Category...</h4>
                   <ul>
-                    <li><a href="#">Carpet Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">House Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">Road Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">Kitchen Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">Toilet Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">Office Cleaning <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Concrete Service <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Demolition & Grading Services <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Drainage, Irrigation & Repairs <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Landscaping, Tree Service & Sod Installation<i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Lawn Care <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Retaining Walls <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Remodeling Services <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="#">Fence Design, Installation & Repair <i> <FaArrowAltCircleRight /> </i> </a></li>
                   </ul>
                 </div>
                 <div className="tp-faqs-left-img mb-30">
