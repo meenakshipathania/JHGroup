@@ -23,7 +23,7 @@ const ServicesDetailsFaq = () => {
   const [text2, Settext2] = useState([]);
   useEffect(() => {
      const request = axios.CancelToken.source();
-        axios.get('http://165.227.11.15:1337/api/demos?populate=*')
+        axios.get('http://165.227.11.15:1337/api/fences?populate=*')
            .then((res) => {
               Settext2(res.data.data);
            })
@@ -138,11 +138,14 @@ const [text1, Settext1] = useState([]);
                     </div>
                   </div>
                 </div> */}
-                {/* <p className="d-flex"> <i > <CgCheckO /> </i> {text ? text.map((x) => <p>{x.attributes.t1}</p>) : 'Home'}</p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> {text ? text.map((x) => <p>{x.attributes.t2}</p>) : 'Home'} </p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> {text ? text.map((x) => <p>{x.attributes.t3}</p>) : 'Home'} </p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> {text ? text.map((x) => <p>{x.attributes.t4}</p>) : 'Home'} </p>
-                <p className="mb-35 d-flex"> <i > <CgCheckO /> </i> {text ? text.map((x) => <p>{x.attributes.t5}</p>) : 'Home'} </p> */}
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text1}</p>) : 'Home'}</p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text2}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text3}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text4}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text5}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text6}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text7}</p>) : 'Home'} </p>
+                <p className="mb-35 d-flex"> <i > <CgCheckO /> </i> {text2 ? text2.map((x) => <p>{x.attributes.text8}</p>) : 'Home'} </p>
                 <h3 className="tp-service-details-subtitle mb-20">{text1 ? text1.map((x) => <a>{x.attributes.heading}</a>) : 'Home'}</h3>
                 <p className="mb-35">{text1 ? text1.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'}</p>
                 <div className="row mb-35">

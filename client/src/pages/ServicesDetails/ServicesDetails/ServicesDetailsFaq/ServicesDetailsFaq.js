@@ -71,8 +71,8 @@ const [text1, Settext1] = useState([]);
                     <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}<i> <FaArrowAltCircleRight /> </i> </a></li>
                     <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text4}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
                     <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text5}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text6}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text7}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="remodel">{text ? text.map((x) => <a>{x.attributes.text6}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="fence">{text ? text.map((x) => <a>{x.attributes.text7}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
                   </ul>
                 </div>
                 <div className="tp-faqs-left-img mb-30">
