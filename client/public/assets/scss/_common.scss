@@ -31,8 +31,11 @@
 	transition: all 1.5s cubic-bezier(0, 0, 0.2, 1);
 }
 .logo{
-    max-width: 60%;
+    max-width: 50%;
 	transition: all 1.5s cubic-bezier(0, 0, 0.2, 1);
+}
+.cen{
+    text-align: center;
 }
 .f-left {
 	float: left

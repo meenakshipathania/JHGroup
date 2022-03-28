@@ -79,7 +79,7 @@ const HomeThreePopularServices = ({ colorClass }) => {
                </div>
                <div className="row">
                            <div className="col-12">
-                              <div className="tp-about-three-btn">
+                              <div className="tp-about-three-btn cen">
                                  <Link to="/services" className="theme-btn text-white">
                                     <i className="flaticon-enter"></i> See More Services</Link>
                               </div>
