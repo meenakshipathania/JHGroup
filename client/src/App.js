@@ -14,6 +14,10 @@ import ServicesDetails from './pages/ServicesDetails/ServicesDetails/ServicesDet
 import Demo from './pages/Demo/Demo/Demo'; 
 import Fence from './pages/Fence/Fence/Fence';
 import Remodel from './pages/Remodel/Remodel/Remodel';
+import Drain from './pages/Drain/Drain/Drain';
+import Landscape from './pages/Landscape/Landscape/Landscape';
+import Lawn from './pages/Lawn/Lawn/Lawn';
+import Retaining from './pages/Retaining/Retaining/Retaining';
 import Projects from './pages/Projects/Projects/Projetcs';
 import ProjectsDetails from './pages/ProjectsDetails/ProjectsDetails/ProjectsDetails';
 import BlogsSidebar from './pages/BlogsSidebar/BlogsSidebar/BlogsSidebar';
@@ -50,6 +54,10 @@ const App = () => {
           <Route path="/demo" element={<Demo />} />
           <Route path="/fence" element={<Fence />} />
           <Route path="/remodel" element={<Remodel />} />
+          <Route path="/drain" element={<Drain />} />
+          <Route path="/landscape" element={<Landscape />} />
+          <Route path="/lawn" element={<Lawn />} />
+          <Route path="/retaining" element={<Retaining />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projectsDetails" element={<ProjectsDetails />} />
           <Route path="/blogSidebar" element={<BlogsSidebar />} />

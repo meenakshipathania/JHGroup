@@ -66,11 +66,11 @@ const [text1, Settext1] = useState([]);
                   <h4 className="tp-faqs-left-sidebar-title">{text ? text.map((x) => <h4>{x.attributes.heading}</h4>) : 'Home'}</h4>
                   <ul>
                     <li><a href="#">{text ? text.map((x) => <a>{x.attributes.test}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="/demo">{text ? text.map((x) => <a>{x.attributes.text1}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text2}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}<i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text4}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
-                    <li><a href="#">{text ? text.map((x) => <a>{x.attributes.text5}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="demo">{text ? text.map((x) => <a>{x.attributes.text1}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="drain">{text ? text.map((x) => <a>{x.attributes.text2}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="landscape">{text ? text.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}<i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="lawn">{text ? text.map((x) => <a>{x.attributes.text4}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
+                    <li><a href="retaining">{text ? text.map((x) => <a>{x.attributes.text5}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
                     <li><a href="remodel">{text ? text.map((x) => <a>{x.attributes.text6}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
                     <li><a href="fence">{text ? text.map((x) => <a>{x.attributes.text7}</a>) : 'Home'} <i> <FaArrowAltCircleRight /> </i> </a></li>
                   </ul>

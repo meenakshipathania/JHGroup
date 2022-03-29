@@ -1,5 +1,5 @@
 import React from 'react';
-import Breadcrumb from '../../../../components/Breadcrumb1/Breadcrumb1';
+import Breadcrumb from '../../../../components/Breadcrumb2/Breadcrumb2';
 
 const ServicesDetailsBreadcrumb = () => {
    return (

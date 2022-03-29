@@ -65,14 +65,13 @@ const Footer = () => {
                            <h4 className="tp-footer-widget-title mb-35">Our Services</h4>
                            <ul>
                               <li><a href="#">Concrete Services</a></li>
-                              <li><a href="#">Demolition & Grading Services</a></li>
-                              <li><a href="#">Drainage, Irrigation, Repair</a></li>
-                              <li><a href="#">Fence : New & Repair</a></li>
-                              <li><a href="#">Remoeling</a></li>
-                              <li><a href="#">Landscping, Trees and sod</a></li>
-                              <li><a href="#">Remodeling</a></li>
-                              <li><a href="#">Retaining Walls</a></li>
-                              <li><a href="#">Lawn Care</a></li>
+                              <li><a href="demo">Demolition & Grading Services</a></li>
+                              <li><a href="drain">Drainage, Irrigation, Repair</a></li>
+                              <li><a href="fence">Fence : New & Repair</a></li>
+                              <li><a href="landscape">Landscping, Trees and sod</a></li>
+                              <li><a href="remodel">Remodeling</a></li>
+                              <li><a href="retaining">Retaining Walls</a></li>
+                              <li><a href="lawn">Lawn Care</a></li>
                            </ul>
                         </div>
                      </div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Breadcrumb = ({title,subTitle,smText = 'Appointment'}) => {
+const Breadcrumb1 = ({title,subTitle,smText = 'Appointment'}) => {
    return (
       <>
-         <div className={`tp-page-title-area pt-180 pb-185 position-relative fix breadcrumb_bg2`} >
+         <div className={`tp-page-title-area pt-180 pb-185 position-relative fix breadcrumb_bg1`} >
             <div className="tp-custom-container">
                <div className="row">
                   <div className="col-12">
@@ -28,4 +28,4 @@ const Breadcrumb = ({title,subTitle,smText = 'Appointment'}) => {
    );
 };
 
-export default Breadcrumb;
+export default Breadcrumb1;
