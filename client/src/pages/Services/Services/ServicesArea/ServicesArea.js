@@ -6,7 +6,7 @@ const ServicesArea = () => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/newsers')
+         axios.get('http://165.227.11.15:1337/api/services')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -22,8 +22,8 @@ const ServicesArea = () => {
                <div className="row">
                   <div className="col-12">
                      <div className="section-title-wrapper text-center mb-55 wow fadeInUp" data-wow-delay=".3s">
-                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">{text ? text.map((x) => <span>{x.attributes.text}</span>) : 'Services'}</h5>
-                        <h2 className="tp-section-title heading-color-black">{text ? text.map((x) => <span>{x.attributes.text1}</span>) : 'Office Address'}<br/>{text ? text.map((x) => <span>{x.attributes.text2}</span>) : 'Office Address'}</h2>
+                        <h5 className="tp-section-subtitle section__sm__title common-yellow-shape mb-20 heading-color-black">{text ? text.map((x) => <span>{x.attributes.text4}</span>) : 'Services'}</h5>
+                        <h2 className="tp-section-title heading-color-black">{text ? text.map((x) => <span>{x.attributes.text5}</span>) : 'Office Address'}<br/>{text ? text.map((x) => <span>{x.attributes.text6}</span>) : 'Office Address'}</h2>
                      </div>
                   </div>
                </div>

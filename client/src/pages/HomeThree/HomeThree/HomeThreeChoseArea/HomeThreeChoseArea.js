@@ -6,7 +6,7 @@ const HomeThreeChoseArea = () => {
    const [text, Settext] = useState();
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/chooses?populate=*')
+         axios.get('http://165.227.11.15:1337/api/home-choose-areas?populate=*')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -20,18 +20,6 @@ const HomeThreeChoseArea = () => {
       const dataurl = atttribute.image.data[0].attributes.url;
       return baseurl + dataurl;
    }
-   const [data, Setdata] = useState([]);
-   useEffect(() => {
-      const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/choose1s')
-            .then((res) => {
-               Setdata(res.data.data);
-            })
-            .catch((error) => {
-               console.log(error);
-            });
-      return () => request.cancel();
-   }, []);
 
    return (
       <>
@@ -62,10 +50,10 @@ const HomeThreeChoseArea = () => {
                   <div className="col-xl-6 col-lg-10">
                      <div className="tp-choose-three">
                         <div className="section-title-wrapper mb-25">
-                           <h5 className="tp-section-subtitle-three mb-20">{data ? data.map((x) => <h5>{x.attributes.head}</h5>) : 'Home'}</h5>
-                           <h2 className="tp-section-title-two color-theme-blue">{data ? data.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'}</h2>
+                           <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.head}</h5>) : 'Home'}</h5>
+                           <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'}</h2>
                         </div>
-                        <p className="mb-45">{data ? data.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
+                        <p className="mb-45">{text ? text.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
                         <div className="row mb-10">
 
                            <HomeThreeSingleChoseArea icon="delivery-box" title="Online Estimation" para="We are responsible for the online estinmation of the project."/>

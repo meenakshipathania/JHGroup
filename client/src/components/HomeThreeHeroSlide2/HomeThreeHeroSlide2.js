@@ -7,7 +7,7 @@ const HomeThreeHeroSlide = () => {
     const [slider, Setslider] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/slider2s')
+         axios.get('http://165.227.11.15:1337/api/sliders')
             .then((res) => {
                Setslider(res.data.data);
             })
@@ -47,14 +47,14 @@ const HomeThreeHeroSlide = () => {
                                 </Fade>
 
                                 <Fade right>
-                                    <h1 className="tp-slider-three-title">{slider ? slider.map((x) => <a>{x.attributes.text2}</a>) : 'Home'}
-                                        <br />{slider ? slider.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}</h1>
+                                    <h1 className="tp-slider-three-title">{slider ? slider.map((x) => <a>{x.attributes.text6}</a>) : 'Home'}
+                                        <br />{slider ? slider.map((x) => <a>{x.attributes.text7}</a>) : 'Home'}</h1>
                                 </Fade>
 
                                 <Fade bottom>
                                     <div className="tp-slider-three-btn">
                                         <Link to="/about" className="yellow-btn">
-                                            <i className="flaticon-enter"></i>{slider ? slider.map((x) => <a>{x.attributes.text4}</a>) : 'Home'}</Link>
+                                            <i className="flaticon-enter"></i>{slider ? slider.map((x) => <a>{x.attributes.text5}</a>) : 'Home'}</Link>
                                     </div>
                                 </Fade>
                             </div>

@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import HomeThreeSingleFeature from '../../../../components/HomeThreeSingleFeature/HomeThreeSingleFeature';
-import HomeThreeSingleFeature1 from '../../../../components/HomeThreeSingleFeature1/HomeThreeSingleFeature1';
-import HomeThreeSingleFeature2 from '../../../../components/HomeThreeSingleFeature2/HomeThreeSingleFeature2';
-import HomeThreeSingleFeature3 from '../../../../components/HomeThreeSingleFeature3/HomeThreeSingleFeature3';
 
 const WorkingProcess = () => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://localhost:1337/api/works')
+         axios.get('http://165.227.11.15:1337/api/home-work-processes')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -32,14 +28,59 @@ const WorkingProcess = () => {
                   </div>
                </div>
                <div className="row">
-               <div className="row">
-                 
-                 <HomeThreeSingleFeature icon="booking" />
-                 <HomeThreeSingleFeature1 icon="delivery-box" title="Received Data" />
-                 <HomeThreeSingleFeature2 icon="boy" title="Ready Cleaner" />
-                 <HomeThreeSingleFeature3 icon="cleaning" title="Start Cleaning" />
-          
-              </div>                
+                  <div className="col-xl-3 col-sm-6">
+                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <div className="tp-feature-three-icon mb-30">
+                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found" />
+                           <i className={`flaticon-${'booking'}`}></i>
+                        </div>
+                        <div className="tp-feature-three-text">
+                           <h4 className="tp-feature-three-title mb-20">
+                              <Link to="/projectsDetails">{text ? text.map((x) => <h5>{x.attributes.head1}</h5>) : 'Home'}</Link></h4>
+                           <p>{text ? text.map((x) => <p>{x.attributes.para1}</p>) : 'Home'}</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="col-xl-3 col-sm-6">
+                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <div className="tp-feature-three-icon mb-30">
+                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found" />
+                           <i className={`flaticon-${"delivery-box"}`}></i>
+                        </div>
+                        <div className="tp-feature-three-text">
+                           <h4 className="tp-feature-three-title mb-20">
+                              <Link to="/projectsDetails">{text ? text.map((x) => <h5>{x.attributes.head2}</h5>) : 'Home'}</Link></h4>
+                           <p>{text ? text.map((x) => <p>{x.attributes.para2}</p>) : 'Home'}</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="col-xl-3 col-sm-6">
+                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <div className="tp-feature-three-icon mb-30">
+                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found" />
+                           <i className={`flaticon-${"boy"}`}></i>
+                        </div>
+                        <div className="tp-feature-three-text">
+                           <h4 className="tp-feature-three-title mb-20">
+                              <Link to="/projectsDetails">{text ? text.map((x) => <h5>{x.attributes.head3}</h5>) : 'Home'}</Link></h4>
+                           <p>{text ? text.map((x) => <p>{x.attributes.para3}</p>) : 'Home'}</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="col-xl-3 col-sm-6">
+                     <div className="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <div className="tp-feature-three-icon mb-30">
+                           <img src="assets/img/icon/feature-bg.png" className="img-fluid" alt="img not found" />
+                           <i className={`flaticon-${"cleaning"}`}></i>
+                        </div>
+                        <div className="tp-feature-three-text">
+                           <h4 className="tp-feature-three-title mb-20">
+                              <Link to="/projectsDetails">{text ? text.map((x) => <h5>{x.attributes.head4}</h5>) : 'Home'}</Link></h4>
+                           <p>{text ? text.map((x) => <p>{x.attributes.para4}</p>) : 'Home'}</p>
+                        </div>
+                     </div>
+                  </div>
+
                </div>
             </div>
          </section>
