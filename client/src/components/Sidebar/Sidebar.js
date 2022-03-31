@@ -34,11 +34,11 @@ const Sidebar = ({ show, handleClose }) => {
       return () => request.cancel();
    }, []);
 
-   const Home = <NavLink to="/homeThree">{nav ? nav.map((x) => <a>{x.attributes.tag1}</a>) : 'Home'}</NavLink>
-   const Services = <NavLink to="/services">{nav ? nav.map((x) => <a>{x.attributes.tag2}</a>) : 'Services'} </NavLink>
-   const Gallary = <NavLink to="/gallary">{nav ? nav.map((x) => <a>{x.attributes.tag3}</a>) : 'Gallary'} </NavLink>
-   const About_us = <NavLink to="/about">{nav ? nav.map((x) => <a>{x.attributes.tag4}</a>) : 'About Us'}</NavLink>
-   const contact = <NavLink to="/contact">{nav ? nav.map((x) => <a>{x.attributes.tag5}</a>) : 'Contact'}</NavLink>
+   const Home = <NavLink to="/homeThree">{nav ? nav.map((x) => <span>{x.attributes.tag1}</span>) : 'Home'}</NavLink>
+   const Services = <NavLink to="/services">{nav ? nav.map((x) => <span>{x.attributes.tag2}</span>) : 'Services'} </NavLink>
+   const Gallary = <NavLink to="/gallary">{nav ? nav.map((x) => <span>{x.attributes.tag3}</span>) : 'Gallary'} </NavLink>
+   const About_us = <NavLink to="/about">{nav ? nav.map((x) => <span>{x.attributes.tag4}</span>) : 'About Us'}</NavLink>
+   const contact = <NavLink to="/contact">{nav ? nav.map((x) => <span>{x.attributes.tag5}</span>) : 'Contact'}</NavLink>
    return (
       <>
 
@@ -107,9 +107,9 @@ const Sidebar = ({ show, handleClose }) => {
                               <div className="contact-list mb-30">
                                  <h4>Contact Info</h4>
                                  <ul>
-                                    <li><i className="flaticon-pin"></i>{text ? text.map((x) => <a>{x.attributes.address}</a>) : 'Home'}</li>
-                                    <li><i className="flaticon-email"></i><a href="mailto:info@klenar.com">{text ? text.map((x) => <a>{x.attributes.email}</a>) : 'Email'}</a></li>
-                                    <li><i className="flaticon-phone-call"></i><a href="tel:817-991-0254">{text ? text.map((x) => <a>{x.attributes.phone}</a>) : 'Home'}</a></li>
+                                    <li><i className="flaticon-pin"></i>{text ? text.map((x) => <span>{x.attributes.address}</span>) : 'Home'}</li>
+                                    <li><i className="flaticon-email"></i><a href="mailto:info@klenar.com">{text ? text.map((x) => <span>{x.attributes.email}</span>) : 'Email'}</a></li>
+                                    <li><i className="flaticon-phone-call"></i><a href="tel:817-991-0254">{text ? text.map((x) => <span>{x.attributes.phone}</span>) : 'Home'}</a></li>
                                  </ul>
                                  <div className="sidebar__menu--social">
                                     <a className="text-white" href="/"><i><FaFacebookF className='icon' /> </i></a>

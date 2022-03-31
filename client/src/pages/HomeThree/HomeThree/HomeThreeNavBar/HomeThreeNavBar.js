@@ -58,7 +58,7 @@ const HomeThreeNavBar = () => {
                         <div className="tp-main-menu tp-main-menu-three">
                            <nav id="tp-mobile-menu">
                               <ul>
-                                 <li className="menu-item-has-children">
+                                 <li key={'home'}className="menu-item-has-children">
                                     <NavLink to="/">{logo ? logo.map((x) => <span>{x.attributes.tag1}</span>) : 'Home'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/">Home Style 1</NavLink></li>
@@ -66,7 +66,7 @@ const HomeThreeNavBar = () => {
                                        <li><NavLink to="/homeThree">Home Style 3</NavLink></li>
                                     </ul> */}
                                  </li>
-                                 <li className="menu-item-has-children">
+                                 <li key={'service'}className="menu-item-has-children">
                                     <NavLink to="/services">{logo ? logo.map((x) => <span>{x.attributes.tag2}</span>) : 'Services'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/about">About</NavLink></li>
@@ -84,7 +84,7 @@ const HomeThreeNavBar = () => {
                                        <li><NavLink to="/servicesDetails">Services Details</NavLink></li>
                                     </ul> */}
                                  </li>
-                                 <li className="menu-item-has-children">
+                                 <li key={'about'} className="menu-item-has-children">
                                     <NavLink to="/about">{logo ? logo.map((x) => <span>{x.attributes.tag4}</span>) : 'About Us'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/projects">Projects</NavLink></li>
@@ -92,7 +92,7 @@ const HomeThreeNavBar = () => {
                                        </NavLink></li>
                                     </ul> */}
                                  </li>
-                                 <li className="menu-item-has-children">
+                                 <li key={'contact'} className="menu-item-has-children">
                                     <NavLink to="/contact">{logo ? logo.map((x) => <span>{x.attributes.tag5}</span>) : 'Contact'}</NavLink>
                                     {/* <ul className="sub-menu">
                                        <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink>
@@ -114,11 +114,11 @@ const HomeThreeNavBar = () => {
                      <div className="col-xxl-4 col-xl-3 d-none d-xl-block">
                         <div className="tp-header-right-three">
                            <div className="tp-header-number-three">
-                              <span>Call Us : <a href="tel:817-991-0254">{logo ? logo.map((x) => <a>{x.attributes.text2}</a>) : '817-991-0254'}</a></span>
+                              <span>Call Us : <a href="tel:817-991-0254">{logo ? logo.map((x) => <span>{x.attributes.text2}</span>) : '817-991-0254'}</a></span>
                            </div>
                            <div className="tp-header-btn-three">
                               <Link to="/contact" className="yellow-btn">
-                                 <i className="flaticon-enter"></i> {logo ? logo.map((x) => <a>{x.attributes.text3}</a>) : 'Free Quote'}</Link>
+                                 <i className="flaticon-enter"></i> {logo ? logo.map((x) => <span>{x.attributes.text3}</span>) : 'Free Quote'}</Link>
                            </div>
                         </div>
                      </div>

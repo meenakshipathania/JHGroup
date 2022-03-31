@@ -64,14 +64,14 @@ const Footer = () => {
                         <div className="tp-footer-widget footer-col-2 mb-30 wow fadeInUp" data-wow-delay=".6s">
                            <h4 className="tp-footer-widget-title mb-35">Our Services</h4>
                            <ul>
-                              <li><a href="#">Concrete Services</a></li>
-                              <li><a href="demo">Demolition & Grading Services</a></li>
-                              <li><a href="drain">Drainage, Irrigation, Repair</a></li>
-                              <li><a href="fence">Fence : New & Repair</a></li>
-                              <li><a href="landscape">Landscping, Trees and sod</a></li>
-                              <li><a href="remodel">Remodeling</a></li>
-                              <li><a href="retaining">Retaining Walls</a></li>
-                              <li><a href="lawn">Lawn Care</a></li>
+                              <li key={'concrete'}><a href="concrete">Concrete Services</a></li>
+                              <li key={'demo'}>< a href="demo">Demolition & Grading Services</a></li>
+                              <li key={'drain'}><a href="drain">Drainage, Irrigation, Repair</a></li>
+                              <li key={'fence'}><a href="fence">Fence : New & Repair</a></li>
+                              <li key={'landscape'}><a href="landscape">Landscping, Trees and sod</a></li>
+                              <li key={'remodel'}><a href="remodel">Remodeling</a></li>
+                              <li key={'retaining'}><a href="retaining">Retaining Walls</a></li>
+                              <li key={'lawn'}><a href="lawn">Lawn Care</a></li>
                            </ul>
                         </div>
                      </div>
