@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaMapMarkerAlt,FaPhoneAlt,FaEnvelopeOpen } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelopeOpen } from 'react-icons/fa';
 
 const ContactForm = () => {
     const [text, Settext] = useState([]);
     useEffect(() => {
-       const request = axios.CancelToken.source();
-          axios.get('http://165.227.11.15:1337/api/contacts')
-             .then((res) => {
+        const request = axios.CancelToken.source();
+        axios.get('http://165.227.11.15:1337/api/contacts')
+            .then((res) => {
                 Settext(res.data.data);
-             })
-             .catch((error) => {
+            })
+            .catch((error) => {
                 console.log(error);
-             });
-       return () => request.cancel();
+            });
+        return () => request.cancel();
     }, []);
-    
+
     return (
         <>
-            <section className="tp-contact-area pb-120">
+            <section className="tp-contact-area pb-120 mt-80">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-10">
@@ -34,7 +34,7 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-4 col-sm-6 custom-pad-20">
                                     <div className="tp-contact-info mb-40 wow fadeInUp" data-wow-delay=".4s">
                                         <div className="tp-contact-info-icon">
-                                            <i> <FaMapMarkerAlt className='contact_icon'/> </i>
+                                            <i> <FaMapMarkerAlt className='contact_icon' /> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
                                             <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head1}</span>) : 'Office Address'}</h4>
@@ -45,7 +45,7 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-4 col-sm-6 custom-pad-20">
                                     <div className="tp-contact-info mb-40 wow fadeInUp" data-wow-delay=".6s">
                                         <div className="tp-contact-info-icon">
-                                            <i> <FaPhoneAlt className='contact_icon'/> </i>
+                                            <i> <FaPhoneAlt className='contact_icon' /> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
                                             <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head2}</span>) : 'Free Contact'}</h4>
@@ -56,7 +56,7 @@ const ContactForm = () => {
                                 <div className="col-lg-12 col-md-4 col-sm-6 custom-pad-20">
                                     <div className="tp-contact-info mb-40 wow fadeInUp" data-wow-delay=".8s">
                                         <div className="tp-contact-info-icon">
-                                            <i > <FaEnvelopeOpen className='contact_icon'/> </i>
+                                            <i > <FaEnvelopeOpen className='contact_icon' /> </i>
                                         </div>
                                         <div className="tp-contact-info-text">
                                             <h4 className="tp-contact-info-title mb-15">{text ? text.map((x) => <span>{x.attributes.head3}</span>) : 'Email Address'}</h4>
@@ -71,29 +71,29 @@ const ContactForm = () => {
                                 <div className="row custom-mar-20">
                                     <div className="col-md-6 custom-pad-20">
                                         <div className="tp-contact-form-field mb-20">
-                                            <input type="text" placeholder="Full name"/>
+                                            <input type="text" placeholder="Full name" />
                                         </div>
                                     </div>
                                     <div className="col-md-6 custom-pad-20">
                                         <div className="tp-contact-form-field mb-20">
-                                            <input type="email" placeholder="Email Address"/>
+                                            <input type="text" placeholder="Phone" />
                                         </div>
                                     </div>
                                     <div className="col-md-6 custom-pad-20">
                                         <div className="tp-contact-form-field mb-20">
-                                            <input type="text" placeholder="Phone"/>
+                                            <input type="email" placeholder="Email Address" />
                                         </div>
                                     </div>
                                     <div className="col-md-6 custom-pad-20">
                                         <div className="tp-contact-form-field select-field-arrow mb-20">
                                             <select>
-                                            <option defaultValue="1">Service Name</option>
-                                            <option defaultValue="2">Commercial Service</option>
-                                            <option defaultValue="3">Residential Service</option>
-                                            <option defaultValue="4">Industrial Service</option>
-                                            <option defaultValue="5">Retaining Walls Service</option>
-                                            <option defaultValue="6">Lawn Care service</option>
-                                            <option defaultValue="6">Drining service</option>
+                                                <option defaultValue="1">How did you hear about us ?</option>
+                                                <option defaultValue="2">Google</option>
+                                                <option defaultValue="3">Good Contractors List</option>
+                                                <option defaultValue="4">Angie's List</option>
+                                                <option defaultValue="5">Facebook</option>
+                                                <option defaultValue="6">Friend/Neighbour</option>
+                                                <option defaultValue="6">Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -102,10 +102,46 @@ const ContactForm = () => {
                                             <textarea placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
+
+                                    <div className="col-md-12 custom-pad-20">
+                                        <div className="tp-contact-form-field mb-20">
+                                            {/* <div className="bor"> */}
+                                                <label>Address</label>
+                                                <div class="row">
+                                                    <div className="col-md-12 custom-pad-20">
+                                                        <div className="tp-contact-form-field mb-20">
+                                                            <input type="text" placeholder="Street Address" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="row">
+                                                    <div className="col-md-6 custom-pad-20">
+                                                        <div className="tp-contact-form-field mb-20">
+                                                            <input type="text" placeholder="City" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 custom-pad-20">
+                                                        <div className="tp-contact-form-field mb-20">
+                                                            <input type="text" placeholder="State / Province" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div className="col-md-6 custom-pad-20">
+                                                        <div className="tp-contact-form-field mb-20">
+                                                            <input type="text" placeholder="Postal / Zip Code" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {/* </div> */}
+                                        </div>
+                                    </div>
+
                                     <div className="col-md-12 custom-pad-20">
                                         <div className="tp-contact-form-field">
                                             <button type="submit" className="theme-btn text-white">
-                                            <i className="flaticon-enter"></i> Send Message</button>
+                                                <i className="flaticon-enter"></i> Send Message</button>
                                         </div>
                                     </div>
                                 </div>

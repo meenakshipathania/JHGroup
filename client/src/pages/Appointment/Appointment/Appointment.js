@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../../../components/shared/Footer/Footer';
-import Navigation from '../../../components/shared/Navigation/Navigation';
+import Navigation from '../../HomeThree/HomeThree/HomeThreeNavBar/HomeThreeNavBar';
 import ApointArea from './ApointArea/ApointArea';
 import AppointmentFeatures from './ApointmentFeatures/AppointmentFeatures';
 import AppointmentBreadcrumb from './AppointmentBreadcrumb/AppointmentBreadcrumb';

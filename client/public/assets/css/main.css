@@ -2480,6 +2480,9 @@ select {
 .tp-main-menu-inner ul li:hover a {
   color: #06ae5a;
 }
+.bor{
+  border: 2px black solid;
+}
 
 /*----------------------------------------*/
 /*  03. Hero

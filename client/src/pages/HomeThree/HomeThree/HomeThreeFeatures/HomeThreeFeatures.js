@@ -23,7 +23,7 @@ const HomeThreeFeatures = () => {
                   <div className="col-12">
                      <div className="section-title-wrapper text-center mb-55 wow fadeInUp" data-wow-delay=".2s">
                         <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}</h5>
-                        <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'} <br />{text ? text.map((x) => <a>{x.attributes.tagline2}</a>) : 'Home'}</h2>
+                        <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <span>{x.attributes.tagline}</span>) : 'Home'} <br />{text ? text.map((x) => <span>{x.attributes.tagline2}</span>) : 'Home'}</h2>
                      </div>
                   </div>
                </div>
