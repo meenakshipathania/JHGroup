@@ -14,15 +14,17 @@ const ApointArea = () => {
                                         <input type="text" placeholder="Your Name"/>
                                     </div>
                                     <div className="input-field mb-15">
-                                        <input type="text" placeholder="Your Name"/>
+                                        <input type="text" placeholder="Your Contact"/>
                                     </div>
                                     <div className="input-field select-field-arrow mb-15">
                                         <select>
-                                            <option defaultValue="">Choose Service</option>
-                                            <option defaultValue="">House Cleaning</option>
-                                            <option defaultValue="">Office Cleaning</option>
-                                            <option defaultValue="">Kitchen Cleaning</option>
-                                            <option defaultValue="">Club Cleaning</option>
+                                        <option defaultValue="1">Service Name</option>
+                                            <option defaultValue="2">Commercial Service</option>
+                                            <option defaultValue="3">Residential Service</option>
+                                            <option defaultValue="4">Industrial Service</option>
+                                            <option defaultValue="5">Retaining Walls Service</option>
+                                            <option defaultValue="6">Lawn Care service</option>
+                                            <option defaultValue="6">Drining service</option>
                                         </select>
                                     </div>
                                     <div className="input-field mb-15">
