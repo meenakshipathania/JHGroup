@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelopeOpen } from 'react-icons/fa';
 const ContactForm = () => {
     const [text, Settext] = useState([]);
@@ -15,6 +16,21 @@ const ContactForm = () => {
         return () => request.cancel();
     }, []);
 
+
+
+
+    //   const sendEmail = (e) => {
+    //     e.preventDefault();
+
+    //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
+    //       .then((result) => {
+    //           console.log(result.text);
+    //       }, (error) => {
+    //           console.log(error.text);
+    //       });
+    //   };
+
+
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,9 +44,18 @@ const ContactForm = () => {
     const [state, setState] = useState('');
     const [zip, setZip] = useState('');
 
+    const form = useRef();
     const handleSubmit = (e) => {
         e.preventDefault();
         const contact = { firstname, lastname, email, phone, interested, hear, message, streetaddress, streetaddress2, city, state, zip };
+
+        emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset()
 
         fetch('http://165.227.11.15:1337/api/contect-datas', {
             method: 'POST',
@@ -40,21 +65,7 @@ const ContactForm = () => {
             console.log("new contact added")
         })
     }
-    
-    //  axios.post(
-    //     'http://165.227.11.15:1337/api/contect-datas',
-    //     {
-    //         data: {
-    //             firstname: 'firstname',
-    //             lastname: 'lastname',
-    //             email: 'email',
-    //             phone: 'phone'
-    //         }
-    //     })
-    //     .then(response => {
-    //         console.log(response);
-    //     });
-    
+
     return (
         <>
             <section className="tp-contact-area pb-120 mt-80">
@@ -105,8 +116,9 @@ const ContactForm = () => {
                                 </div>
                             </div>
                         </div>
+
                         <div className="col-lg-8">
-                            <form id="contactForm" method="POST" onSubmit={handleSubmit}>
+                            <form id="contactForm" ref={form} onSubmit={handleSubmit}>
                                 <div className="tp-contact-form">
                                     <div className="row custom-mar-20">
                                         <div className="col-md-6 custom-pad-20">
