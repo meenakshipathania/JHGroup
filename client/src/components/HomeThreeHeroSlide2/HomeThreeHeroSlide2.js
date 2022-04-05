@@ -43,18 +43,18 @@ const HomeThreeHeroSlide = () => {
                             <div className="tp-slider-three z-index">
 
                                 <Fade left>
-                                    <h6 className="tp-slider-three-subtitle" ><img src="assets/img/icon/slider-icon-1.png" className="img-fluid" alt="img not found" /> {slider ? slider.map((x) => <a>{x.attributes.text1}</a>) : 'Home'}</h6>
+                                    <h6 className="tp-slider-three-subtitle" ><img src="assets/img/icon/slider-icon-1.png" className="img-fluid" alt="img not found" /> {slider ? slider.map((x) => <span>{x.attributes.text1}</span>) : 'Home'}</h6>
                                 </Fade>
 
                                 <Fade right>
-                                    <h1 className="tp-slider-three-title">{slider ? slider.map((x) => <a>{x.attributes.text6}</a>) : 'Home'}
-                                        <br />{slider ? slider.map((x) => <a>{x.attributes.text7}</a>) : 'Home'}</h1>
+                                    <h1 className="tp-slider-three-title">{slider ? slider.map((x) => <span>{x.attributes.text6}</span>) : 'Home'}
+                                        <br />{slider ? slider.map((x) => <span>{x.attributes.text7}</span>) : 'Home'}</h1>
                                 </Fade>
 
                                 <Fade bottom>
                                     <div className="tp-slider-three-btn">
                                         <Link to="/about" className="yellow-btn">
-                                            <i className="flaticon-enter"></i>{slider ? slider.map((x) => <a>{x.attributes.text5}</a>) : 'Home'}</Link>
+                                            <i className="flaticon-enter"></i>{slider ? slider.map((x) => <span>{x.attributes.text5}</span>) : 'Home'}</Link>
                                     </div>
                                 </Fade>
                             </div>

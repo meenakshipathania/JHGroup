@@ -36,7 +36,7 @@ const HomeThreePopularServices = () => {
                         <div className="col-md-4 columns">
                            {/* <div className="tp-service-three tp-service-four mb-30 wow fadeInUp" data-wow-delay="1.2s"> */}
                            <div className="serviceimage">
-                              <img className="imagebor" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" />
+                              <a href="##"><img className="imagebor" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
                            </div>
                            {/* </div> */}
                         </div>
@@ -47,12 +47,12 @@ const HomeThreePopularServices = () => {
                <div className="row">
                <div className="col-md-4 offset-2 columns">
                      <div className="serviceimage">
-                        <img className="imagebor" src="assets/img/slider/gallery-retaining.jpg" alt="" />    
+                     <a href="##"><img className="imagebor" src="assets/img/slider/gallery-retaining.jpg" alt="" /></a>    
                      </div>
                   </div>
                   <div className="col-md-4 columns">
                      <div className="serviceimage">
-                        <img className="imagebor" src="assets/img/slider/gallery-remodeling.jpg" alt="" />    
+                     <a href="##"><img className="imagebor" src="assets/img/slider/gallery-remodeling.jpg" alt="" /></a>   
                      </div>
                   </div>
 
