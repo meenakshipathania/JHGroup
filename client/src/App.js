@@ -23,6 +23,8 @@ import ProjectsDetails from './pages/ProjectsDetails/ProjectsDetails/ProjectsDet
 import BlogsSidebar from './pages/BlogsSidebar/BlogsSidebar/BlogsSidebar';
 import BlogDetails from './pages/BlogDetails/BlogDetails/BlogDetails';
 import Contact from './pages/Contact/Contact/Contact';
+import GalleryConcrete from './pages/gallery-concrete/gallery-concrete/gallery-concrete'
+import GalleryDemo from './pages/gallery-demo/gallery-demo/gallery-demo'
 import { WOW } from 'wowjs';
 import ScrollToTop from './components/ScrollToTop';
 // import HomeTwo from './pages/HomeTwo/HomeTwo/HomeTwo';
@@ -64,6 +66,8 @@ const App = () => {
           <Route path="/blogDetails" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallary" element={<Gallary />} />
+          <Route path="/gallery-concrete" element={<GalleryConcrete />} />
+          <Route path="/gallery-demo" element={<GalleryDemo />} />
         </Routes>
       </BrowserRouter>
     </>
