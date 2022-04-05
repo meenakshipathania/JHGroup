@@ -11,7 +11,7 @@ const Sidebar = ({ show, handleClose }) => {
    const [nav, Setnav] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/navbars')
+         axios.get('http://165.227.11.15:1337/api/logos?populate=*')
             .then((res) => {
                Setnav(res.data.data);
             })
@@ -52,47 +52,47 @@ const Sidebar = ({ show, handleClose }) => {
 
                   <Collapsible trigger={Home} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
+                     {/* <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/">Home Style 1</NavLink></li>
                         <li><NavLink to="/homeTwo">Home Style 2</NavLink></li>
                         <li><NavLink to="/homeThree">Home Style 3</NavLink></li>
-                     </ul>
+                     </ul> */}
                   </Collapsible>
 
                   <Collapsible trigger={Services} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
+                     {/* <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/about">About</NavLink></li>
                         <li><NavLink to="/appointment">Appointment</NavLink></li>
                         <li><NavLink to="/pricing">Pricing</NavLink></li>
                         <li><NavLink to="/team">Team</NavLink></li>
                         <li><NavLink to="/teamDetails">Team Details</NavLink></li>
                         <li><NavLink to="/faq">Faq</NavLink></li>
-                     </ul>
+                     </ul> */}
                   </Collapsible>
 
                   <Collapsible trigger={Gallary} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
+                     {/* <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/services">Services</NavLink></li>
                         <li><NavLink to="/servicesDetails">Services Details</NavLink></li>
-                     </ul>
+                     </ul> */}
                   </Collapsible>
 
                   <Collapsible trigger={About_us} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
+                     {/* <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/projects">Projects</NavLink></li>
                         <li><NavLink to="/projectsDetails">Projects Details</NavLink></li>
-                     </ul>
+                     </ul> */}
                   </Collapsible>
 
                   <Collapsible trigger={contact} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
+                     {/* <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/blogSidebar">Blog Sidebar</NavLink></li>
                         <li><NavLink to="/blogDetails">Blog Details</NavLink></li>
-                     </ul>
+                     </ul> */}
                   </Collapsible>
 
                   {/* <div className='contact_nav text-white font-bold'>
