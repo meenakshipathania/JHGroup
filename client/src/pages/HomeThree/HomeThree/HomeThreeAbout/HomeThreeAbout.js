@@ -29,8 +29,8 @@ const HomeThreeAbout = () => {
                   <div className="col-xxl-6 col-xl-6 col-md-10">
                      <div className="tp-about-text tp-about-text-three mb-30 wow fadeInUp" data-wow-delay=".6s">
                         <div className="section-title-wrapper mb-25">
-                           <h5 className="tp-section-subtitle-three mb-20">{logo ? logo.map((x) => <a>{x.attributes.text1}</a>) : 'Home'}</h5>
-                           <h2 className="tp-section-title-two color-theme-blue">{logo ? logo.map((x) => <a>{x.attributes.text2}</a>) : 'Home'}<br />{logo ? logo.map((x) => <a>{x.attributes.text3}</a>) : 'Home'}</h2>
+                           <h5 className="tp-section-subtitle-three mb-20">{logo ? logo.map((x) => <span>{x.attributes.text1}</span>) : 'Home'}</h5>
+                           <h2 className="tp-section-title-two color-theme-blue">{logo ? logo.map((x) => <span>{x.attributes.text2}</span>) : 'Home'}<br />{logo ? logo.map((x) => <span>{x.attributes.text3}</span>) : 'Home'}</h2>
                         </div>
                         <p className="mb-40">{logo ? logo.map((x) => <p>{x.attributes.text4}</p>) : 'Home'}</p>
                         <div className="row mb-10">

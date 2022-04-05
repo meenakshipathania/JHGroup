@@ -645,3 +645,26 @@
     background: #06ae5a;
     color: #ffffff;
 }
+.columns{
+    padding-top: 23px;
+    padding-right: 14px;
+    padding-left: 14px;
+    border-width: 0;
+    border-style: none;
+    background-color: transparent;
+}
+.serviceimage{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    border-width: 1px;
+    border-color: #5087ca;
+    text-decoration: none;
+    border-style: solid;
+    border-radius: 20px;
+    box-shadow: rgb(0 0 0 / 50%) 5px 5px 10px 0;
+}
+.imagebor{
+    width: 100%;
+    border-radius: 20px;
+}

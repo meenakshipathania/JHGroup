@@ -51,7 +51,7 @@ const HomeThreeChoseArea = () => {
                      <div className="tp-choose-three">
                         <div className="section-title-wrapper mb-25">
                            <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.head}</h5>) : 'Home'}</h5>
-                           <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <a>{x.attributes.tagline}</a>) : 'Home'}</h2>
+                           <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <span>{x.attributes.tagline}</span>) : 'Home'}</h2>
                         </div>
                         <p className="mb-45">{text ? text.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
                         <div className="row mb-10">

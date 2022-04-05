@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelopeOpen } from 'react-icons/fa';
+
 const ContactForm = () => {
     const [text, Settext] = useState([]);
     useEffect(() => {
@@ -15,21 +16,6 @@ const ContactForm = () => {
             });
         return () => request.cancel();
     }, []);
-
-
-
-
-    //   const sendEmail = (e) => {
-    //     e.preventDefault();
-
-    //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
-    //       .then((result) => {
-    //           console.log(result.text);
-    //       }, (error) => {
-    //           console.log(error.text);
-    //       });
-    //   };
-
 
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
@@ -48,14 +34,26 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const contact = { firstname, lastname, email, phone, interested, hear, message, streetaddress, streetaddress2, city, state, zip };
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setInterested("");
+        setHear("");
+        setMessage("");
+        setStreetaddress("");
+        setStreetaddress2("");
+        setCity("");
+        setState("");
+        setZip("");
 
-        emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-        e.target.reset()
+        // emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+        // e.target.reset()
 
         fetch('http://165.227.11.15:1337/api/contect-datas', {
             method: 'POST',
@@ -65,6 +63,7 @@ const ContactForm = () => {
             console.log("new contact added")
         })
     }
+
 
     return (
         <>
@@ -123,7 +122,7 @@ const ContactForm = () => {
                                     <div className="row custom-mar-20">
                                         <div className="col-md-6 custom-pad-20">
                                             <div className="tp-contact-form-field mb-20">
-                                                <input type="text" placeholder="First Name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
+                                                <input type="text" placeholder="First Name" name="firstname" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
                                             </div>
                                         </div>
                                         <div className="col-md-6 custom-pad-20">
@@ -138,7 +137,7 @@ const ContactForm = () => {
                                         </div>
                                         <div className="col-md-6 custom-pad-20">
                                             <div className="tp-contact-form-field mb-20">
-                                                <input type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                <input type="tel" pattern="[0-9]{10}" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
                                             </div>
                                         </div>
                                         <div className="col-md-6 custom-pad-20">
