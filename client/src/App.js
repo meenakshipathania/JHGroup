@@ -25,6 +25,12 @@ import BlogDetails from './pages/BlogDetails/BlogDetails/BlogDetails';
 import Contact from './pages/Contact/Contact/Contact';
 import GalleryConcrete from './pages/gallery-concrete/gallery-concrete/gallery-concrete'
 import GalleryDemo from './pages/gallery-demo/gallery-demo/gallery-demo'
+import GalleryDrain from './pages/gallery-drain/gallery-drain/gallery-drain'
+import GalleryFence from './pages/gallery-fencing/gallery-fencing/gallery-fencing'
+import GalleryLandscaping from './pages/gallery-landscaping/gallery-landscaping/gallery-landscaping'
+import GalleryLawn from './pages/gallery-lawn/gallery-lawn/gallery-lawn'
+import GalleryRemodeling from './pages/gallery-remodeling/gallery-remodeling/gallery-remodeling'
+import GalleryRetaining from './pages/gallery-retaining/gallery-retaining/gallery-retaining'
 import { WOW } from 'wowjs';
 import ScrollToTop from './components/ScrollToTop';
 // import HomeTwo from './pages/HomeTwo/HomeTwo/HomeTwo';
@@ -68,6 +74,12 @@ const App = () => {
           <Route path="/gallary" element={<Gallary />} />
           <Route path="/gallery-concrete" element={<GalleryConcrete />} />
           <Route path="/gallery-demo" element={<GalleryDemo />} />
+          <Route path="/gallery-drain" element={<GalleryDrain />} />
+          <Route path="/gallery-fence" element={<GalleryFence />} />
+          <Route path="/gallery-landscaping" element={<GalleryLandscaping />} />
+          <Route path="/gallery-lawn" element={<GalleryLawn />} />
+          <Route path="/gallery-remodeling" element={<GalleryRemodeling />} />
+          <Route path="/gallery-retaining" element={<GalleryRetaining />} />
         </Routes>
       </BrowserRouter>
     </>

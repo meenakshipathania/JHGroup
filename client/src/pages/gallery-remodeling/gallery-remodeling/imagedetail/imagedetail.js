@@ -10,7 +10,7 @@ const ServicesDetailsFaq = () => {
   const [text2, Settext2] = useState([]);
   useEffect(() => {
     const request = axios.CancelToken.source();
-    axios.get('http://165.227.11.15:1337/api/service1s/4?populate[allimages][populate]=*')
+    axios.get('http://165.227.11.15:1337/api/service1s/6?populate[allimages][populate]=*')
       .then((res) => {
         Settext2(res.data.data);
       })
@@ -34,7 +34,7 @@ const ServicesDetailsFaq = () => {
       <section className='grey'>
         <div className="row">
           <div className='col-md-12'>
-            <h1 className="heading1">ARLINGTON / MANSFIELD, TX - JH GROUP DEMOLITION AND GRADING PICTURE GALLERY</h1>
+            <h1 className="heading1">ARLINGTON / MANSFIELD, TX - JH GROUP REMODELING PICTURE GALLERY</h1>
           </div>
         </div>
         <div className="gallery">
@@ -61,7 +61,7 @@ const ServicesDetailsFaq = () => {
             </div>
           </div>
 
-          <div className="row pb-80 back">
+          <div className="row pb-20 back">
             <div class="col-md-3 offset-1">
               {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                 <a href="##"><img src={x.image4 ? imageurl(x.image4) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
@@ -78,6 +78,55 @@ const ServicesDetailsFaq = () => {
             <div class="col-md-3">
               {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                 <a href="##"><img src={x.image6 ? imageurl(x.image6) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+          </div>
+          <div className="row pb-20 back">
+            <div class="col-md-3 offset-1">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image7 ? imageurl(x.image7) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+            <div class="col-md-3">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image8 ? imageurl(x.image8) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+
+            <div class="col-md-3">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image9 ? imageurl(x.image9) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+          </div>
+          <div className="row pb-20 back">
+            <div class="col-md-3 offset-1">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image10 ? imageurl(x.image10) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+            <div class="col-md-3">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image11 ? imageurl(x.image11) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+            <div class="col-md-3">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image12 ? imageurl(x.image12) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
+              ))
+                : 'hgfhgf'}
+            </div>
+          </div>
+          <div className="row pb-80 back">
+            <div class="col-md-3 offset-1">
+              {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
+                <a href="##"><img src={x.image13 ? imageurl(x.image13) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
               ))
                 : 'hgfhgf'}
             </div>

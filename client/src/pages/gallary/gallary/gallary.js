@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React,{ useEffect, useState} from 'react';
 import axios from 'axios';
 
 const HomeThreePopularServices = () => {
    const [text, Settext] = useState([]);
    useEffect(() => {
       const request = axios.CancelToken.source();
-      axios.get('http://165.227.11.15:1337/api/gallaries?populate=*')
+      axios.get('http://165.227.11.15:1337/api/galleries?populate=*')
          .then((res) => {
             Settext(res.data.data);
          })
@@ -14,9 +14,44 @@ const HomeThreePopularServices = () => {
          });
       return () => request.cancel();
    }, []);
-   function imageurl(atttribute) {
+   function imageurl1(atttribute) {
       const baseurl = 'http://165.227.11.15:1337';
-      const dataurl = atttribute.image.data[0].attributes.url;
+      const dataurl = atttribute.image1.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl2(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image2.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl3(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image3.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl4(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image4.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl5(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image5.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl6(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image6.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl7(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image7.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
+   function imageurl8(atttribute) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = atttribute.image8.data[0].attributes.url;
       return baseurl + dataurl;
    }
    return (
@@ -31,28 +66,82 @@ const HomeThreePopularServices = () => {
                   </div>
                </div>
                <div className="row">
-                  {text
-                     ? text.slice(0, 6).map((x) => (
-                        <div className="col-md-4 columns">
-                           {/* <div className="tp-service-three tp-service-four mb-30 wow fadeInUp" data-wow-delay="1.2s"> */}
-                           <div className="serviceimage">
-                              <a href="##"><img className="imagebor" src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} alt="" /></a>
-                           </div>
-                           {/* </div> */}
-                        </div>
-                     ))
-                     : 'hgfhgf'}
-               </div>
-
-               <div className="row">
-               <div className="col-md-4 offset-2 columns">
+                  <div className="col-md-4 columns">
                      <div className="serviceimage">
-                     <a href="##"><img className="imagebor" src="assets/img/slider/gallery-retaining.jpg" alt="" /></a>    
+                        {text
+                           ? text.map((x) => (
+                              <a href="gallery-concrete"><img className="imagebor" src={x.attributes ? imageurl1(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
                      </div>
                   </div>
                   <div className="col-md-4 columns">
                      <div className="serviceimage">
-                     <a href="##"><img className="imagebor" src="assets/img/slider/gallery-remodeling.jpg" alt="" /></a>   
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-demo"><img className="imagebor" src={x.attributes ? imageurl2(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+                  <div className="col-md-4 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-drain"><img className="imagebor" src={x.attributes ? imageurl3(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+               </div>
+               <div className="row">
+                  <div className="col-md-4 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-fence"><img className="imagebor" src={x.attributes ? imageurl4(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+                  <div className="col-md-4 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-landscaping"><img className="imagebor" src={x.attributes ? imageurl5(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+                  <div className="col-md-4 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-lawn"><img className="imagebor" src={x.attributes ? imageurl6(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+               </div>
+
+
+               <div className="row">
+                  <div className="col-md-4 offset-2 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-remodeling"><img className="imagebor" src={x.attributes ? imageurl7(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
+                     </div>
+                  </div>
+                  <div className="col-md-4 columns">
+                     <div className="serviceimage">
+                     {text
+                           ? text.map((x) => (
+                              <a href="gallery-retaining"><img className="imagebor" src={x.attributes ? imageurl8(x.attributes) : 'hgghtyu'} alt="" /></a>
+                           ))
+                           : 'hgfhgf'}
                      </div>
                   </div>
 

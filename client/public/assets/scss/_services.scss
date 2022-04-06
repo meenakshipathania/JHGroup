@@ -674,6 +674,7 @@ h1.heading1{
     text-align: center;
     font-size: 20px;
     font-family: 'Droid Sans', cursive;
+    padding-top: 14px;
   }
 .gallery{
     margin-top: 50px;
@@ -681,4 +682,30 @@ h1.heading1{
     padding-right: 200px;
     padding-bottom: 0;
     padding-left: 200px;
+    margin-top: 8px;
+}
+.back{
+    background-color: white;
+}
+.grey{
+    background-color: rgb(173, 173, 173);
+    padding-bottom: 60px;
+}
+.mar{
+    margin-left: 35px;
+}
+.area{
+    padding-top: 13px;
+    padding-bottom: 12px;
+    max-width: none;
+    color: #000;
+    text-align: center;
+    font-style: italic;
+    font-size: 24px;
+}
+.paragraph{
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    color: black;
 }

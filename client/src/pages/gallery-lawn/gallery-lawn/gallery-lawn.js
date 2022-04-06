@@ -4,7 +4,7 @@ import Navigation from '../../HomeThree/HomeThree/HomeThreeNavBar/HomeThreeNavBa
 import GalleryBreadcrumb from './galleryBreadcrumb/galleryBreadcrumb';
 import ImageDetail from './imagedetail/imagedetail';
 
-const GalleryDrain = () => {
+const GalleryLawn = () => {
     return (
         <>
             <Navigation />
@@ -15,4 +15,4 @@ const GalleryDrain = () => {
     );
 };
 
-export default GalleryDrain;
+export default GalleryLawn;
