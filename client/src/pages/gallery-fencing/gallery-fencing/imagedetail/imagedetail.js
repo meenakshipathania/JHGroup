@@ -134,7 +134,12 @@ const ServicesDetailsFaq = () => {
             </div>
           
           </div>
-        
+          <div className='row mt-50 back'>
+            <div className='col-md-12'>
+              <h2 class="area">Our Landscaping, Lawn, Tree, Fencing, Concrete &amp; Irrigation Service Areas in North Texas</h2>
+              <p className='paragraph'>Arlington TX, Burleson TX, Cedar Hill TX, Dalworthington Gardens TX, Grand Prairie TX, Kennedale TX, Mansfield TX, Midlothian TX, Pantego TX, Rendon TX, and Surrounding Areas</p>
+            </div>
+          </div>
 
 
 
