@@ -112,6 +112,9 @@
     }
 }
 .tp-project-three {
+    .posotionRelative{
+        position: relative;
+    }
     &-img {
         position: relative;
         & img {
@@ -125,9 +128,9 @@
             background-color: rgba(254, 209, 12, 0.8);
             position: absolute;
             height: 100%;
-            width: 100%;
+            width: 92%;
             top: 0px;
-            left: 0px;
+            left: 42px;
             transform: scale(0);
             @include transition(0.3s);
             &-text {

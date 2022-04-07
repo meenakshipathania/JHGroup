@@ -44,7 +44,7 @@ const ServicePageArea = ({ ser_icon_img, colorClass }) => {
                                  <Link to="/concrete"> <span>{x.attributes.heading}</span></Link></h4>
                               <p className="mb-30"><span>{x.attributes.para}</span></p>
                               <div className="tp-service-three-text-btn">
-                                 <Link to="/concrete" className="yellow-btn service__btn">
+                                 <Link to={x.attributes.slug} className="yellow-btn service__btn">
                                     <i className="flaticon-enter"></i><span>{x.attributes.text}</span></Link>
                               </div>
                            </div>
