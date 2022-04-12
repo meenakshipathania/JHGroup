@@ -1,14 +1,33 @@
-import React from 'react';
-import ServiceTestimonial from '../../../../components/ServiceTestimonial/ServiceTestimonial';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+// import ServiceTestimonial from '../../../../components/ServiceTestimonial/ServiceTestimonial';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { FaQuoteLeft } from 'react-icons/fa';
 import "swiper/css/pagination";
 
 SwiperCore.use([Navigation, Pagination]);
 
 const ServicesTestimonials = () => {
+   const [text, Settext] = useState([]);
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+      axios.get('http://165.227.11.15:1337/api/testimonials?populate=*')
+         .then((res) => {
+            Settext(res.data.data);
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+      return () => request.cancel();
+   });
+   function imageurl(data) {
+      const baseurl = 'http://165.227.11.15:1337';
+      const dataurl = data.image.data[0].attributes.url;
+      return baseurl + dataurl;
+   }
    return (
       <>
          <section className="tp-testimonial-area-two tp-testimonial-area-four position-relative">
@@ -45,15 +64,32 @@ const ServicesTestimonials = () => {
                            },
                         }}
                         navigation={{ nextEl: '.service-button-next', prevEl: '.service-button-prev', }}
-                        // onSlideChange={() => console.log('slide change')}
-                        // onSwiper={(swiper) => console.log(swiper)}
+                     // onSlideChange={() => console.log('slide change')}
+                     // onSwiper={(swiper) => console.log(swiper)}
                      >
+                        {text ? text.map((x) => (
                         <SwiperSlide>
-                           <ServiceTestimonial testi_img_num="2" title="Senior Designer"
-                              name="Petar Mansion"></ServiceTestimonial>
+                           <div className="tp-testimonial-two position-relative swiper-slide mb-30">
+                              <div className="tp-testimonial-two-author mb-20">
+                                 <div className="tp-testimonial-two-author-img">
+                                    <img src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'} className="img-fluid" alt="img not found" />
+                                 </div>
+                                 <div className="tp-testimonial-two-author-text">
+                                    <span>{x.attributes.title}</span>
+                                    <h4 className="tp-testimonial-two-name">{x.attributes.name}</h4>
+                                 </div>
+                              </div>
+                              <p>Hymenaeos rhoncus proin aliquam justo sum mauris rutrum nulam semper purus rutru non sociis
+                                 libero varius cumer to duine felis enisa porta ridiculus nisl acequis. </p>
+                              <div className="tp-testimonial-two-qoute">
+                                 <i ><FaQuoteLeft /></i>
+                              </div>
+                           </div>
                         </SwiperSlide>
+                           ))
+                           : 'hgfhgf'}
 
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                            <ServiceTestimonial testi_img_num="3" title="Wp Developer"
                               name="Broad Richard"></ServiceTestimonial>
                         </SwiperSlide>
@@ -66,7 +102,7 @@ const ServicesTestimonials = () => {
                         <SwiperSlide>
                            <ServiceTestimonial testi_img_num="3" title="Senior Designer"
                               name="Shane Watson"></ServiceTestimonial>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
 
                      </Swiper>
 

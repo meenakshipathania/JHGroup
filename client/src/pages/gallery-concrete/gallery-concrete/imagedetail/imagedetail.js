@@ -3,6 +3,8 @@ import axios from 'axios';
 import Lightbox from 'react-image-lightbox';
 import { HiPlus } from 'react-icons/hi';
 import 'react-image-lightbox/style.css';
+
+
 // import ModalVideo from 'react-modal-video';
 import 'react-modal-video/scss/modal-video.scss';
 // import { FaArrowAltCircleRight} from 'react-icons/fa';
@@ -12,15 +14,14 @@ import 'react-modal-video/scss/modal-video.scss';
 const ServicesDetailsFaq = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [open, setOpen] = useState(false);
-  const images = [
-    axios.get('http://165.227.11.15:1337/api/service1s/1?populate[allimages][populate]=*')
-  ]
+  let images  = []
 
   const [text2, Settext2] = useState([]);
   useEffect(() => {
     const request = axios.CancelToken.source();
     axios.get('http://165.227.11.15:1337/api/service1s/1?populate[allimages][populate]=*')
       .then((res) => {
+        // localStorage.removeItem('images')
         Settext2(res.data.data);
       })
       .catch((error) => {
@@ -30,17 +31,29 @@ const ServicesDetailsFaq = () => {
   }, []);
   function imageurl(data) {
     const baseurl = 'http://165.227.11.15:1337';
-    const dataurl = data.data[0].attributes.url;
-
+    const dataurl = data.data[0].attributes.url;    
+    images.push(baseurl + dataurl);
+    localStorage.setItem('images', JSON.stringify(images));
     return baseurl + dataurl;
   }
-
-
+  
+  if (images.length === 0) {
+    let data = localStorage.getItem('images');
+    if (data) {
+      images = JSON.parse(localStorage.getItem('images'));
+    }
+    // if (open) {
+    //   console.log('index', photoIndex)
+    //   console.log('images', images[photoIndex])
+    // }
+    
+  }
+  // images = JSON.parse(localStorage.getItem('images'))
   return (
     <>
       {open && (
         <Lightbox
-          mainSrc={[photoIndex]}
+          mainSrc={images[photoIndex]}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
           onCloseRequest={() => setOpen(false)}
@@ -60,9 +73,9 @@ const ServicesDetailsFaq = () => {
 
         <div className="gallery">
           <div className="row pb-20 back pt-80">
-            <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
+            <div className=" mb-30 wow fadeInUp" data-wow-delay=".4s">
               <div className="tp-project-three-img row">
-                <div class="col-md-3 offset-1 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 offset-1 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="/"><img src={x.image1 ? imageurl(x.image1) : 'hgghtyu'} className="img mar" alt="img not found" />
                     </a>
@@ -77,7 +90,7 @@ const ServicesDetailsFaq = () => {
                   </div>
                 </div>
 
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image2 ? imageurl(x.image2) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -90,7 +103,7 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image3 ? imageurl(x.image3) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -106,16 +119,16 @@ const ServicesDetailsFaq = () => {
 
               </div>
             </div>
-            {/* <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
+          <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
               
-            </div> */}
+            </div>
 
           </div>
 
           <div className="row pb-20 back">
-            <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
+            <div className="mb-30 wow fadeInUp" data-wow-delay=".4s">
               <div className="tp-project-three-img row">
-                <div class="col-md-3 offset-1 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 offset-1 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="/"><img src={x.image4 ? imageurl(x.image4) : 'hgghtyu'} className="img mar" alt="img not found" />
                     </a>
@@ -130,7 +143,7 @@ const ServicesDetailsFaq = () => {
                   </div>
                 </div>
 
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image5 ? imageurl(x.image5) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -143,7 +156,7 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image6 ? imageurl(x.image6) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -166,9 +179,9 @@ const ServicesDetailsFaq = () => {
           </div>
 
           <div className="row pb-20 back">
-            <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
+            <div className=" mb-30 wow fadeInUp" data-wow-delay=".4s">
               <div className="tp-project-three-img row">
-                <div class="col-md-3 offset-1 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 offset-1 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="/"><img src={x.image7 ? imageurl(x.image7) : 'hgghtyu'} className="img mar" alt="img not found" />
                     </a>
@@ -183,7 +196,7 @@ const ServicesDetailsFaq = () => {
                   </div>
                 </div>
 
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image8 ? imageurl(x.image8) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -196,7 +209,7 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image9 ? imageurl(x.image9) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -218,9 +231,9 @@ const ServicesDetailsFaq = () => {
 
           </div>
           <div className="row pb-20 back">
-            <div className="tp-project-three mb-30 wow fadeInUp" data-wow-delay=".4s">
+            <div className="mb-30 wow fadeInUp" data-wow-delay=".4s">
               <div className="tp-project-three-img row">
-                <div class="col-md-3 offset-1 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 offset-1 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="/"><img src={x.image10 ? imageurl(x.image10) : 'hgghtyu'} className="img mar" alt="img not found" />
                     </a>
@@ -235,7 +248,7 @@ const ServicesDetailsFaq = () => {
                   </div>
                 </div>
 
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image11 ? imageurl(x.image11) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -248,7 +261,7 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 posotionRelative">
+                <div className="col-lg-3 col-md-12 col-sm-12 posotionRelative tp-project-three">
                   {text2['attributes'] ? text2['attributes']['allimages'].map((x) => (
                     <a href="##"><img src={x.image12 ? imageurl(x.image12) : 'hgghtyu'} className="img mar" alt="img not found" /></a>
                   ))
@@ -270,13 +283,13 @@ const ServicesDetailsFaq = () => {
 
           </div>
           <div className='row mt-50 back'>
-            <div className='col-md-12'>
-              <h2 class="area">Our Landscaping, Lawn, Tree, Fencing, Concrete &amp; Irrigation Service Areas in North Texas</h2>
+            <div className='col-lg-12 col-md-6 col-sm-12'>
+              <h2 className="area">Our Landscaping, Lawn, Tree, Fencing, Concrete &amp; Irrigation Service Areas in North Texas</h2>
               <p className='paragraph'>Arlington TX, Burleson TX, Cedar Hill TX, Dalworthington Gardens TX, Grand Prairie TX, Kennedale TX, Mansfield TX, Midlothian TX, Pantego TX, Rendon TX, and Surrounding Areas</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> 
     </>
   );
 };

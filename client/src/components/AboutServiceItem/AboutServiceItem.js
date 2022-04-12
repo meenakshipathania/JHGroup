@@ -21,7 +21,7 @@ const AboutServiceItem = ({servicer_img,name,title}) => {
                         <li><a href="/"><i> <BsTwitter/> </i></a></li>
                         <li><a href="/"><i> <FaFacebookF/> </i></a></li>
                      </ul>
-                     <a href="#" className="share-icon">
+                     <a href="##" className="share-icon">
                         <i><RiShareLine className='share_icon' /></i>
                      </a>
                   </div>
@@ -33,6 +33,8 @@ const AboutServiceItem = ({servicer_img,name,title}) => {
             </div>
          </div>
       </>
+
+
    );
 };
 

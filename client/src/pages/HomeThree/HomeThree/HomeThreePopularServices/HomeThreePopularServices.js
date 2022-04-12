@@ -64,10 +64,10 @@ const HomeThreePopularServices = ({ colorClass }) => {
                               <div className='col-lg-6'>
                                  <div className="tp-service-three-text fix">
                                     <h4 className={colorClass ? "home_three_title tp-service-three-title mb-20 heading-color-black-with-hover" : "tp-service-three-title mb-20 heading-color-black-with-hover"}>
-                                       <Link to="/concrete"> <span>{x.attributes.heading}</span></Link></h4>
+                                       <Link to={'/'+x.attributes.slug}> <span>{x.attributes.heading}</span></Link></h4>
                                     <p className="mb-30"><span>{x.attributes.para}</span></p>
                                     <div className="tp-service-three-text-btn">
-                                       <Link to="/concrete" className="yellow-btn service__btn">
+                                       <Link to={'/'+x.attributes.slug} className="yellow-btn service__btn">
                                           <i className="flaticon-enter"></i><span>{x.attributes.text}</span></Link>
                                     </div>
                                  </div>

@@ -21,6 +21,7 @@ const HomeThreeSingleProject = ({ column, columnTwo, image_num, title, subTitle 
                mainSrc={images[photoIndex]}
                nextSrc={images[(photoIndex + 1) % images.length]}
                prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+               debugger
                onCloseRequest={() => setOpen(false)}
                onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
                onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}

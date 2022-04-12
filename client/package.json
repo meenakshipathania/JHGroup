@@ -20,7 +20,9 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "6",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.28.1",
     "sass": "^1.49.0",
+    "simple-react-lightbox": "^3.6.9-0",
     "swiper": "^7.4.1",
     "web-vitals": "^2.1.4",
     "wowjs": "^1.1.3"

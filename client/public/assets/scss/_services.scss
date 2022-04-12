@@ -677,12 +677,11 @@ h1.heading1{
     padding-top: 14px;
   }
 .gallery{
-    margin-top: 50px;
-    margin-bottom: 0;
-    padding-right: 200px;
-    padding-bottom: 0;
-    padding-left: 200px;
-    margin-top: 8px;
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 0;
+   
 }
 .back{
     background-color: white;
@@ -709,3 +708,13 @@ h1.heading1{
     font-size: 16px;
     color: black;
 }
+@media screen and (max-width: 992px) {
+    .mar{
+        margin-left:0px;
+    }
+    .offset-1{
+        margin-left: 0px;
+    }
+  }
+
+

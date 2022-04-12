@@ -1,10 +1,10 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import "swiper/css/pagination";
-import AppointmentSingleFeedback from '../../../../components/AppointmentSingleFeadback/AppointmentSingleFeadback';
+// import AppointmentSingleFeedback from '../../../../components/AppointmentSingleFeadback/AppointmentSingleFeadback';
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -25,7 +25,7 @@ const AppointmentFeedback = () => {
                <div className="tp-testimonial-three-shadow common-dots">
                   <div className="tp-testimonial-three-active swiper-container">
 
-                     <Swiper
+                     {/* <Swiper */}
                         spaceBetween={30}
                         slidesPerView={1}
                         style={{ paddingBottom: '80px' }}
@@ -47,10 +47,10 @@ const AppointmentFeedback = () => {
                            },
                         }}
                         navigation={{ nextEl: '.service-button-next', prevEl: '.service-button-prev', }}
-                        // onSlideChange={() => console.log('slide change')}
-                        // onSwiper={(swiper) => console.log(swiper)}
-                     >
-                        <SwiperSlide>
+                         {/* onSlideChange={() => console.log('slide change')
+                        onSwiper={(swiper) => console.log(swiper)} */}
+                     {/* > */}
+                        {/* <SwiperSlide>
                            <AppointmentSingleFeedback image_num="2" title="Senior Designer" name="Petar Mansion" />
                         </SwiperSlide>
 
@@ -68,10 +68,10 @@ const AppointmentFeedback = () => {
 
                         <SwiperSlide>
                            <AppointmentSingleFeedback image_num="2" title="Senior Designer" name="Petar Mansion" />
-                        </SwiperSlide>
+                        </SwiperSlide> */}
 
                         <div className="swiper-service-pagination slide-dots"></div>
-                     </Swiper>
+                     {/* </Swiper> */}
                   </div>
 
                   <div className="swiper-pagination-testimonial slide-dots "></div>

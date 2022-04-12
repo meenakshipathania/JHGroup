@@ -69,7 +69,7 @@ const ServicesDetailsFaq = () => {
                : 'hgfhgf'}
                 </div>
                 <div className="tp-faqs-left-sidebar tp-services-sidebar mb-30">
-                  <h4 className="tp-faqs-left-sidebar-title mb-30">{text ? text.map((x) => <h4>{x.attributes.heading}</h4>) : 'Home'}</h4>
+                  <h4 className="tp-faqs-left-sidebar-title mb-30">{text ? text.map((x) => <span>{x.attributes.heading}</span>) : 'Home'}</h4>
                   <div className="tp-services-sidebar-btn">
                     <a href="##" className="mb-15 text-white"><i className="flaticon-pdf-file"></i> {text ? text.map((x) => <span>{x.attributes.pres}</span>) : 'Home'}</a>
                     <a href="##" className="mb-10 text-white"><i className="flaticon-file"></i> {text ? text.map((x) => <span>{x.attributes.down}</span>) : 'Home'}</a>
@@ -101,7 +101,7 @@ const ServicesDetailsFaq = () => {
                 <p className="mb-20">Fusce fusce ante dis varius iaculis quis penatibus do placerat et convallis ultricies egestas hacker pharetra veile litora nascetur diam dapibus euismod neque sapien siverra nunc nisler fortune litora neque ultrices eros aenean habitant tellus torquent ipsum, commodo Ligula curae; auctor ultricies laoreet metus cubilia enim faucibus litora nibh torquent platea sodales auctor gravida tortor class litora id arcu conubia. Augue suscipit metus ante eu rhoncus cras. Ipsum nulla feugiat nam pede cras a eleifend. Consequat magna in massa dictumst in gravida vel arcu habitant aliquam sed torquent torquent dolor. Diam tortor. Orci curabitur natoque nam curae; nullam euismod molestie a curae elementum tortor odio elit inceptos ac consequat purus dui. Ad mollis eget nullam. Nulla neque turpis interdum hymenaeos pretium blandit. Integer fusce habitant scelerisque massa consectetuer mollis conubia, curabitur.</p>
                 <p className="mb-35">Neque gravida dui fermentum pulvinar fringilla sodales massa hendrerit nascetur. Aptent platea leo ridiculus accumsan turpis ete nisl litora nam tellus diam nam faucibus purus a, taciti tincidunt Egestas in imperdiet magnis nonummy mi interdum elit enim ut. Curabitur quis vitae lobortis quam lacus pharetra mus, arcu. Vele Facilisi orci orci nisi consequat dignissim duise in iaculis pulvinar hymenaeos pharetra tortor phasellus. Consectetuer penatibus id. Eleifend potenti. Elit purus fermentum idev posuere nullam iaculis. Fusce orci co nsectetuer. Metus nonummy turpis sodales vivamus mollis posuere fermentum </p> */}
                 <h3 className="tp-service-details-subtitle">Service Overview</h3>
-                <p className="mb-40">{ text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.para1}</p>) : 'Home'}</p>
+                <p className="mb-40">{ text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.para1}</span>) : 'Home'}</p>
                 {/* <div className="tp-service-details-img mb-30 position-relative">
                   <img src="assets/img/service/service-details-3.jpg" alt="img not found" />
                   <div className="tp-service-details-img-overlay">
@@ -112,10 +112,10 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                 </div> */}
-                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.t1}</p>) : 'Home'}</p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.t2}</p>) : 'Home'}</p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.t3}</p>) : 'Home'} </p>
-                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.t4}</p>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.t1}</span>) : 'Home'}</p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.t2}</span>) : 'Home'}</p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.t3}</span>) : 'Home'} </p>
+                <p className="d-flex"> <i > <CgCheckO /> </i> { text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.t4}</span>) : 'Home'} </p>
 
                 <h3 className="tp-service-details-subtitle mb-20">{text ? text.map((x) => <span>{x.attributes.head}</span>) : 'Home'}</h3>
                 <p className="mb-35">{text ? text.map((x) => <span>{x.attributes.tagline}</span>) : 'Home'}</p>
@@ -163,7 +163,7 @@ const ServicesDetailsFaq = () => {
                     </div>
                   </div>
                   <div className="col-xl-6">
-                  <p className="mb-40">{ text2['attributes'] ? text2['attributes']['nested'].map((x) => <p>{x.para2}</p>) : 'Home'}</p>
+                  <p className="mb-40">{ text2['attributes'] ? text2['attributes']['nested'].map((x) => <span>{x.para2}</span>) : 'Home'}</p>
                     {/* <p>Habitasse sed orci lorem lorem quis conubia nam amet lobortis hymenaeos tellus ad nunc senectus auctor varius lamcorper neque faucibus nam ridiculus posuere. Sollici tudin nullam sociis molestie vestibulum to commodo dui tellus eget quam, natoque et. Nonummy bes vehicula leo sollicitudin cras Sociis pretium ligula donec sagittis inter dum aptent nam penatibus dolormagna eu pharetra.</p> */}
                   </div>
                 </div>

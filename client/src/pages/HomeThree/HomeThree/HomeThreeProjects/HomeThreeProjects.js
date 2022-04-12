@@ -60,7 +60,7 @@ const HomeThreeProjects = () => {
                         <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.heading}</h5>) : 'Home'}</h5>
                         <h2 className="tp-section-title-two color-theme-blue mb-45">{text ? text.map((x) => <h2>{x.attributes.para}</h2>) : 'Home'}</h2>
                         <div className="tp-project-title-btn">
-                           <Link to="/projectsDetails" className="yellow-btn"><i className="flaticon-enter"></i> {text ? text.map((x) => <a>{x.attributes.text}</a>) : 'Home'}</Link>
+                           <Link to="/projectsDetails" className="yellow-btn"><i className="flaticon-enter"></i> {text ? text.map((x) => <span>{x.attributes.text}</span>) : 'Home'}</Link>
                         </div>
                      </div>
                   </div>
