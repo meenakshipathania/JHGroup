@@ -6,7 +6,7 @@ const HomeThreeChoseArea = () => {
    const [text, Settext] = useState();
    useEffect(() => {
       const request = axios.CancelToken.source();
-         axios.get('http://165.227.11.15:1337/api/home-choose-areas?populate=*')
+         axios.get('http://165.227.11.15:1337/api/logos?populate=*')
             .then((res) => {
                Settext(res.data.data);
             })
@@ -17,7 +17,7 @@ const HomeThreeChoseArea = () => {
    }, []);
    function imageurl(atttribute) {
       const baseurl = 'http://165.227.11.15:1337';
-      const dataurl = atttribute.image.data[0].attributes.url;
+      const dataurl = atttribute.image1.data[0].attributes.url;
       return baseurl + dataurl;
    }
 
@@ -53,7 +53,7 @@ const HomeThreeChoseArea = () => {
                            <h5 className="tp-section-subtitle-three mb-20">{text ? text.map((x) => <h5>{x.attributes.head}</h5>) : 'Home'}</h5>
                            <h2 className="tp-section-title-two color-theme-blue">{text ? text.map((x) => <span>{x.attributes.tagline}</span>) : 'Home'}</h2>
                         </div>
-                        <p className="mb-45">{text ? text.map((x) => <p>{x.attributes.para}</p>) : 'Home'}</p>
+                        <p className="mb-45">{text ? text.map((x) => <p>{x.attributes.para1}</p>) : 'Home'}</p>
                         <div className="row mb-10">
 
                            <HomeThreeSingleChoseArea icon="delivery-box" title="Online Estimation" para="We are responsible for the online estinmation of the project."/>

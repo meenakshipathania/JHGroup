@@ -63,7 +63,7 @@ const AboutArea = () => {
                         <div className="row">
                            <div className="col-12">
                               <div className="tp-about-three-btn">
-                                 <Link to="/servicesDetails" className="theme-btn text-white">
+                                 <Link to="/services" className="theme-btn text-white">
                                     <i className="flaticon-enter"></i> Learn More</Link>
                               </div>
                            </div>

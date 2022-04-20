@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 // import ServiceTestimonial from '../../../../components/ServiceTestimonial/ServiceTestimonial';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -27,6 +27,29 @@ const ServicesTestimonials = () => {
       const baseurl = 'http://165.227.11.15:1337';
       const dataurl = data.image.data[0].attributes.url;
       return baseurl + dataurl;
+   }
+
+   const [name, setName] = useState('');
+   const [phone, setPhone] = useState('');
+   const [service, setService] = useState('');
+   const [message, setMessage] = useState('');
+
+   const form = useRef();
+   const handleSubmit = (e) => {
+       e.preventDefault();
+       const apponitment = { name, phone, service, message };
+       setName("");
+       setPhone("");
+       setService("");
+       setMessage("");
+
+       fetch('http://165.227.11.15:1337/api/free-estimates', {
+           method: 'POST',
+           headers: { "Content-Type": "application/json" },
+           body: JSON.stringify({ data: apponitment })
+       }).then(() => {
+           console.log("new contact added")
+       })
    }
    return (
       <>
@@ -110,26 +133,28 @@ const ServicesTestimonials = () => {
                   </div>
                </div>
                <div className="tp-testimonial-two-form tp-testimonial-two-form-four pt-120 ser_form_bg z-index">
-                  <form action="#" className="text-start tp-testimonial-two-form-wrapper">
+                  <form action="#" ref={form} onSubmit={handleSubmit} className="text-start tp-testimonial-two-form-wrapper">
                      <h3 className="tp-testimonial-form-title"><span>Free</span> Estimate</h3>
                      <p className="mb-30">Free know your project estimate and recent offer</p>
                      <div className="input-field mb-15">
-                        <input type="text" placeholder="Your Name" />
+                        <input type="text" placeholder="Your Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                      </div>
                      <div className="input-field mb-15">
-                        <input type="text" placeholder="Your Name" />
+                        <input type="text" placeholder="Your Phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
                      </div>
                      <div className="input-field select-field-arrow mb-15">
-                        <select>
-                           <option defaultValue="">Choose Service</option>
-                           <option defaultValue="">House Cleaning</option>
-                           <option defaultValue="">Office Cleaning</option>
-                           <option defaultValue="">Kitchen Cleaning</option>
-                           <option defaultValue="">Club Cleaning</option>
+                        <select name="service" value={service} onChange={(e) => setService(e.target.value)}>
+                        <option defaultValue="1">Service Name</option>
+                        <option defaultValue="2">Commercial Service</option>
+                        <option defaultValue="3">Residential Service</option>
+                        <option defaultValue="4">Industrial Service</option>
+                        <option defaultValue="5">Retaining Walls Service</option>
+                        <option defaultValue="6">Lawn Care service</option>
+                        <option defaultValue="6">Drining service</option>
                         </select>
                      </div>
                      <div className="input-field mb-15">
-                        <textarea placeholder="Write Message"></textarea>
+                        <textarea placeholder="Write Message" name="message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                      </div>
                      <div className="input-field">
                         <button type="submit" className="yellow-btn">Free Estimate +</button>

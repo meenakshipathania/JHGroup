@@ -47,6 +47,7 @@ const ContactForm = () => {
         setState("");
         setZip("");
 
+        // important//////////////
         // emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
         //     .then((result) => {
         //         console.log(result.text);
